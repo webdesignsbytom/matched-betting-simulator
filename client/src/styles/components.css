@@ -1,0 +1,4 @@
+/* inputs */
+.main__inputs {
+    @apply bg-white dark:bg-black text-alt-text dark:text-dark-alt-text 
+}
