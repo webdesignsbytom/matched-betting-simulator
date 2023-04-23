@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
-import { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom'
+// Utils
 import { betSampleData, betSampleResultsData } from '../../utils/data/BetData';
 import {
   calculateQualifyingBetStake,
@@ -49,7 +50,6 @@ function Calculator() {
     }
 
     if (betType === 'Free Bet') {
-
       const layStakeResult = calculateFreeSnrBetStake(betData);
       const bookieBetResultsData = bookieSnrResultData(
         betData,
@@ -69,7 +69,6 @@ function Calculator() {
     }
 
     if (betType === 'Free Bet SR') {
-
       const layStakeResult = calculateFreeSrBetStake(betData);
 
       const bookieBetResultsData = bookieStakeReturnedResultData(
@@ -109,11 +108,16 @@ function Calculator() {
   };
 
   return (
-    <>
-      <article className='calculator__main__container'>
-        <section className='bet__type__container'>
-          <h3>Select Bet Type</h3>
-          <form className='calculator__form'>
+    <section className='grid bg-[#008080]'>
+      <main className='grid lg:grid-rows-a1a'>
+        <section className='h-fit'>
+          <article className='p-1 flex items-center justify-between'>
+            <h2 className='font-semibold text-lg pl-2'>Select Bet Type:</h2>
+            <p className='pr-2'>
+            Selected Bet Type: <strong>{betType}</strong>
+          </p>
+          </article>
+          <form className='p-2 bg-[#ffa500]'>
             <label htmlFor='qualifyingBet'>
               Qualifying Bet
               <input
@@ -159,13 +163,14 @@ function Calculator() {
               />
             </label>
           </form>
-          <p>
-            Selected Bet Type: <strong>{betType}</strong>
-          </p>
+          
+          <article className='p-2 h-fit'>
+            <p>Be sure to have the correct setting selected. Double check any bets and odds. Do help keep track of multiple bets, you can download the free print out <Link><span>here</span></Link></p>
+          </article>
         </section>
 
-        {/* Work done here */}
-        <section className='calculator__inputs'>
+        {/* Calculator */}
+        <section className='grid h-full bg-[#ffa500]'>
           <div className='backbet__container'>
             <label htmlFor='backBetStake'>
               Back Bet Stake:
@@ -226,7 +231,7 @@ function Calculator() {
           </div>
         </section>
 
-        {/* results 
+        {/* results table
           [
             [ ] [ B ] [ E ] [ P ]
             [BW] [B+] [L-] [£P]
@@ -234,34 +239,52 @@ function Calculator() {
           ]
         */}
 
-        <section className='results__container'>
+        <section className='results__container h-fit bg-red-300'>
           <table className='results__table'>
             <thead>
               <tr className='table__row'>
                 <th className='ignore'></th>
-                <th style={{backgroundColor: "lightBlue"}}>Bookie</th>
-                <th style={{backgroundColor: "#e24343"}}>Exchange</th>
-                <th style={{backgroundColor: "pink"}}>Total Profit</th>
+                <th style={{ backgroundColor: 'lightBlue' }}>Bookie</th>
+                <th style={{ backgroundColor: '#e24343' }}>Exchange</th>
+                <th style={{ backgroundColor: 'pink' }}>Total Profit</th>
               </tr>
             </thead>
             <tbody>
               <tr className='table__row'>
-                <td style={{backgroundColor: "lightBlue"}}>Bookie Wins</td>
-                <td style={{backgroundColor: "lightBlue"}}> {bookieResults.bookieResults}</td>
-                <td style={{backgroundColor: "lightBlue"}}> {bookieResults.exchangeResults}</td>
-                <td style={{backgroundColor: "pink"}}> £ {bookieResults.totalProfit}</td>
+                <td style={{ backgroundColor: 'lightBlue' }}>Bookie Wins</td>
+                <td style={{ backgroundColor: 'lightBlue' }}>
+                  {' '}
+                  {bookieResults.bookieResults}
+                </td>
+                <td style={{ backgroundColor: 'lightBlue' }}>
+                  {' '}
+                  {bookieResults.exchangeResults}
+                </td>
+                <td style={{ backgroundColor: 'pink' }}>
+                  {' '}
+                  £ {bookieResults.totalProfit}
+                </td>
               </tr>
               <tr className='table__row'>
-                <td style={{backgroundColor: "#e24343"}}>Exchange Wins</td>
-                <td style={{backgroundColor: "#e24343"}}> {exchangeResults.bookieResults}</td>
-                <td style={{backgroundColor: "#e24343"}}> {exchangeResults.exchangeResults}</td>
-                <td style={{backgroundColor: "pink"}}> £ {exchangeResults.totalProfit}</td>
+                <td style={{ backgroundColor: '#e24343' }}>Exchange Wins</td>
+                <td style={{ backgroundColor: '#e24343' }}>
+                  {' '}
+                  {exchangeResults.bookieResults}
+                </td>
+                <td style={{ backgroundColor: '#e24343' }}>
+                  {' '}
+                  {exchangeResults.exchangeResults}
+                </td>
+                <td style={{ backgroundColor: 'pink' }}>
+                  {' '}
+                  £ {exchangeResults.totalProfit}
+                </td>
               </tr>
             </tbody>
           </table>
         </section>
-      </article>
-    </>
+      </main>
+    </section>
   );
 }
 

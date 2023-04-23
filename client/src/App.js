@@ -10,12 +10,14 @@ import Account from './pages/account/Account';
 import Post from './pages/post/Post';
 // Utils
 import { AuthenticateUser } from './utils/AuthenticateUser';
+import SimulatorPage from './pages/simulator/SimulatorPage';
 
 function App() {
   return (
     <Routes>
       <Route path='/' element={<Home />} />
       <Route path='/calculator' element={<CalculatorPage />} />
+      <Route path='/simulator' element={<SimulatorPage />} />
       <Route path='/lessons' element={<Lessons />} />
 
       <Route path='/forum' element={<Forum />} />
