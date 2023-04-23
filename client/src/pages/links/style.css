@@ -1,0 +1,55 @@
+.links__container {
+  padding: 4rem;
+}
+
+.links__header {
+  background-color: orange;
+  border: 2px solid var(--main-border-color);
+  border-radius: var(--main-border-radius);
+  padding: var(--padding-standard);
+  margin-bottom: var(--padding-standard);
+}
+
+/* .link__ul__container {
+  border: 2px solid rgba(0, 0, 0, 0.461);
+  border-radius: var(--main-border-radius);
+  padding: 0.2rem;
+} */
+
+.link__list__item {
+  border: 2px solid var(--main-border-color);
+  border-radius: var(--main-border-radius);
+  padding: var(--padding-standard);
+  background-color: teal;
+}
+
+.list__item__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--main-font-color);
+}
+
+.list__item__main {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--main-font-color);
+  /* TODO: here  */
+}
+
+.list__item__footer {
+  display: flex;
+  justify-content: space-between;
+}
+/* ADD LINK BUTTON */
+.link__cta {
+  padding: var(--padding-standard);
+  margin-bottom: var(--padding-standard);
+  border-radius: var(--main-border-radius);
+}
+
+.add__list__item {
+  margin-bottom: var(--padding-standard);
+  background-color: green;
+}

@@ -1,0 +1,62 @@
+.forum__container {
+  width: 100%;
+}
+
+.forum__content_container {
+  display: grid;
+  width: 100%;
+  padding: var(--padding-standard);
+}
+
+.forum__header__container {
+  border: 2px solid var(--main-border-color);
+  border-radius: var(--main-border-radius);
+  padding: var(--padding-standard);
+  margin-left: 20%;
+  margin-bottom: 1.5rem;
+  background-color: teal;
+}
+/* POSTS AND CATEGORIES */
+.forum__content__container {
+    display: grid;
+    grid-template-columns: 19% 1fr;
+    gap: var(--padding-standard);
+    position: relative;
+}
+
+.forum__catagory__container {
+    border: 2px solid var(--main-border-color);
+    border-radius: var(--main-border-radius);
+    padding: var(--padding-standard);
+    height: min-content;
+    min-width: fit-content;
+    background-color: orange;
+}
+
+.forum__posts__container {
+    border: 2px solid var(--main-border-color);
+    border-radius: var(--main-border-radius);
+    padding: var(--padding-standard);
+
+    background-color: teal;
+    /* max-height: 150vh; */
+}
+
+#general, #events, #newbies {
+  max-width: fit-content;
+  padding: 0.4rem;
+}
+
+#general:hover, #events:hover, #newbies:hover {
+  background-color: red;
+  max-width: fit-content;
+  padding: 0.4rem 0.8rem;
+  border-radius: var(--main-border-radius);
+  color: var(--alt-font-color);
+}
+
+/* CATEGORY DESIGN */
+
+.categories__container {
+    display: grid;
+}

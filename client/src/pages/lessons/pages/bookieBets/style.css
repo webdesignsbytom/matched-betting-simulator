@@ -1,0 +1,52 @@
+#bookie__container {
+  background: lightblue;
+  display: grid;
+  grid-template-rows: auto 1fr;
+}
+
+.bookie__header {
+  display: flex;
+  justify-content: space-between;
+  background-color: rgb(128, 0, 34);
+  align-items: center;
+  padding: 0 0.4rem;
+  border-bottom: 2px solid black;
+  height: fit-content;
+}
+
+.bookie__sports__selection {
+  background-color: blueviolet;
+  display: grid;
+  place-content: center;
+  text-align: center;
+  gap: 1.5rem;
+}
+
+.bookie__sports__selection h3:hover {
+  background-color: teal;
+  border-radius: var(--main-border-radius);
+  padding: 0 0.3rem;
+  cursor: pointer;
+}
+
+.sporting__event__container {
+  border: 1px solid black;
+  padding: 0.2rem;
+  display: grid;
+}
+
+.sporting__event__container ul {
+    padding: 0;
+    margin: 0;
+    line-height: 1.1;
+}
+
+.betData__container {
+    display: flex;
+    gap: 3rem;
+}
+
+.bet__list__item {
+    display: flex;
+    gap: 1rem;
+}

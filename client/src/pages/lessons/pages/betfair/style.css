@@ -1,0 +1,30 @@
+#exchange__container {
+    background: rgb(194, 194, 14);
+    display: grid;
+    grid-template-rows: auto 1fr;
+}
+
+.exchange__header {
+    display: flex;
+    justify-content: space-between;
+    background-color: yellow;
+    align-items: center;
+    padding: 0 0.4rem;
+    border-bottom: 2px solid black;
+    height: fit-content;
+}
+
+.exchange__sports__selection {
+    background-color: violet;
+    display: grid;
+    place-content: center;
+    text-align: center;
+    gap: 1.5rem;
+}
+
+.exchange__sports__selection h3:hover {
+    background-color: teal;
+    border-radius: var(--main-border-radius);
+    padding: 0 0.3rem;
+    cursor: pointer;
+}

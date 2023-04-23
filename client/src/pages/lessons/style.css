@@ -1,0 +1,22 @@
+.lessons__header__container {
+  background-color: red;
+  display: grid;
+  place-content: center;
+  text-align: center;
+  margin: var(--padding-standard);
+
+}
+
+.howtoplay__container {
+    margin: var(--padding-standard);
+    background-color: orange;
+    text-align: center;
+}
+
+.lessons__game__container {
+    /* background-color: brown; */
+    margin: var(--padding-standard);
+    padding: var(--padding-standard);
+}
+
+
