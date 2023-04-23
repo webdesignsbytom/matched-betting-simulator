@@ -1,7 +1,7 @@
 .calculator__main__container {
     border: 4px solid var(--main-border-color);
     border-radius: var(--main-border-radius);
-    background-color: teal;
+    background-color: #008080;
 }
 
 .bet__type__container {
@@ -11,7 +11,7 @@
 }
 
 .calculator__form {
-    background-color: orange;
+    background-color: #ffa500;
     display: flex;
     gap: 1rem;
     font-weight: 600;
