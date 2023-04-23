@@ -7,12 +7,7 @@ import { join } from 'path';
 import * as url from 'url';
 // Import routers
 import authRouter from './routes/auth.js';
-import contactRouter from './routes/contacts.js';
-import complaintRouter from './routes/complaints.js';
 import eventRouter from './routes/events.js';
-import notificationRouter from './routes/notifications.js';
-import messageRouter from './routes/messages.js';
-import reviewRouter from './routes/reviews.js';
 import userRouter from './routes/users.js';
 // Env
 import { HTTP_URL, PORT } from './utils/config.js';
