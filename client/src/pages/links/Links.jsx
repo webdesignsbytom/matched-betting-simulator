@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import LinkContainer from '../../components/links/LinkContainer';
-import Nav from '../../components/nav/Nav';
+import Navbar from '../../components/nav/Navbar';
 import './style.css';
-// TODO: add links to database
+
 function Links() {
   const [isCreatingLink, setIsCreatingLink] = useState(false);
   const [linkData, setLinkData] = useState('');
-// TODO: add fraction conversion chart
+
   const toggleAdd = () => {
     setIsCreatingLink(!isCreatingLink);
   };
@@ -46,7 +46,7 @@ function Links() {
 
   return (
     <>
-      <Nav />
+      <Navbar />
       <div className='links__container'>
 
         <header className='links__header'>

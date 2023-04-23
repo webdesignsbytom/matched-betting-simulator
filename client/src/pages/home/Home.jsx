@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import Nav from '../../components/nav/Nav';
+import Navbar from '../../components/nav/Navbar';
 import './style.css';
 import { UserContext } from '../../context/UserContext';
 import HeaderImage from '../../assets/images/football-goal.jpg';
@@ -11,7 +11,7 @@ function Home() {
 
   return (
     <>
-      <Nav />
+      <Navbar />
       <header className='home__header__container'>
         <div className='home__header__content'>
           <div className='home__header__tc'>

@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import Nav from '../../components/nav/Nav';
+import Navbar from '../../components/nav/Navbar';
+
 function Post() {
   //3rd set this state with post
   const [postDisplayed, setPostDisplayed] = useState({});
@@ -23,7 +24,7 @@ function Post() {
 
   return (
     <>
-      <Nav />
+      <Navbar />
       <main>
         View a single post here
         <h2>{postDisplayed.title}</h2>

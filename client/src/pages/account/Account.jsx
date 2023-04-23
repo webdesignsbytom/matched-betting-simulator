@@ -1,8 +1,8 @@
 import React, { useContext, useEffect, useState } from 'react';
 import FormInput from '../../components/forms/FormInput';
-import Nav from '../../components/nav/Nav';
+import Navbar from '../../components/nav/Navbar';
 import { UserContext } from '../../context/UserContext';
-import { profileFormState, sampleProfileData } from '../../utils/UserData';
+import { profileFormState, sampleProfileData } from '../../utils/data/UserData';
 import './style.css';
 
 function Account() {
@@ -64,7 +64,7 @@ function Account() {
 
   return (
     <>
-      <Nav />
+      <Navbar />
       <main className='account__container'>
         <div className='account__header__container'>
           <h2>Account</h2>

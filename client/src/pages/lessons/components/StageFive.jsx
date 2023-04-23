@@ -1,5 +1,4 @@
 import React from 'react'
-import Events from './Events'
 import Calculator from '../../../components/calculator/Calculator'
 
 function StageFive() {

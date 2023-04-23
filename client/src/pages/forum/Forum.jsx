@@ -1,13 +1,15 @@
 import React, { useContext, useEffect, useState } from 'react';
-import Nav from '../../components/nav/Nav';
+import { useLocation, useNavigate } from 'react-router-dom';
+// Components
+import Navbar from '../../components/nav/Navbar';
+// Context
 import { UserContext } from '../../context/UserContext';
-import './style.css';
-import { categoryInfomation } from '../../utils/Categories';
+import { categoryInfomation } from '../../utils/data/Categories';
 import Posts from '../../components/posts/Posts';
 import NewPostCTA from '../../components/posts/NewPostCTA';
 import PostForm from '../../components/posts/PostForm';
+import './style.css';
 // need this
-import { useLocation, useNavigate } from 'react-router-dom';
 
 const startingCategory = categoryInfomation[0];
 
@@ -54,7 +56,7 @@ function Forum() {
 
   return (
     <div className='forum__container'>
-      <Nav />
+      <Navbar />
       <div className='forum__content_container'>
         <header className='forum__header__container'>
           <h2>Forum</h2>

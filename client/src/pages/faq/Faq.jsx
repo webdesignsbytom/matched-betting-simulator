@@ -1,10 +1,10 @@
 import React from 'react'
-import Nav from '../../components/nav/Nav'
+import Navbar from '../../components/nav/Navbar'
 
 function Faq() {
   return (
     <div>
-        <Nav />
+        <Navbar />
         Faq
         </div>
   )

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Nav from '../../components/nav/Nav';
+import Navbar from '../../components/nav/Navbar';
 import Game from './components/Game';
 import HowToPlay from './components/HowToPlay';
 import './style.css';
@@ -12,7 +12,7 @@ function Lessons() {
   };
   return (
     <>
-      <Nav />
+      <Navbar />
 
       <header className='lessons__header__container'>
         <h2>Learn How To Play</h2>

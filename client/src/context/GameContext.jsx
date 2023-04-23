@@ -1,9 +1,10 @@
 import React from 'react';
 import { createContext, useContext, useEffect, useState } from 'react';
+
 import {
   sampleBookieBetTicket,
   sampleExchangeBetTicket,
-} from '../utils/BetData#';
+} from '../utils/data/BetData';
 
 export const GameContext = React.createContext();
 
