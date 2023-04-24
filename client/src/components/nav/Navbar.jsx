@@ -60,56 +60,56 @@ function Navbar() {
           <ul className='flex gap-6'>
             <li>
               <Link to='/'>
-                <span className='font-semibold text-black hover:text-gray-600 text-xl'>
+                <span className='font-semibold text-black hover:text-gray-600 text-lg'>
                   Home
                 </span>
               </Link>
             </li>
             <li>
               <Link to='/calculator'>
-                <span className='font-semibold text-black hover:text-gray-600 text-xl'>
+                <span className='font-semibold text-black hover:text-gray-600 text-lg'>
                   Calculator
                 </span>
               </Link>
             </li>
             <li>
               <Link to='/lessons'>
-                <span className='font-semibold text-black hover:text-gray-600 text-xl'>
+                <span className='font-semibold text-black hover:text-gray-600 text-lg'>
                   Lessons
                 </span>
               </Link>
             </li>
             <li>
               <Link to='/simulator'>
-                <span className='font-semibold text-black hover:text-gray-600 text-xl'>
+                <span className='font-semibold text-black hover:text-gray-600 text-lg'>
                   Simulator
                 </span>
               </Link>
             </li>
             <li>
               <Link to='/forum'>
-                <span className='font-semibold text-black hover:text-gray-600 text-xl'>
+                <span className='font-semibold text-black hover:text-gray-600 text-lg'>
                   Forum
                 </span>
               </Link>
             </li>
             <li>
               <Link to='/faq'>
-                <span className='font-semibold text-black hover:text-gray-600 text-xl'>
+                <span className='font-semibold text-black hover:text-gray-600 text-lg'>
                   FAQ
                 </span>
               </Link>
             </li>
             <li>
               <Link to='/links'>
-                <span className='font-semibold text-black hover:text-gray-600 text-xl'>
+                <span className='font-semibold text-black hover:text-gray-600 text-lg'>
                   Links
                 </span>
               </Link>
             </li>
             <li onClick={signOut}>
               <Link to='/'>
-                <span className='font-semibold text-black hover:text-gray-600 text-xl'>
+                <span className='font-semibold text-black hover:text-gray-600 text-lg'>
                   Sign Out
                 </span>
               </Link>

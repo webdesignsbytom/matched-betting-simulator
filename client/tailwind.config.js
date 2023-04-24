@@ -5,6 +5,7 @@ module.exports = {
     extend: {
       backgroundImage: {
         'main-bg': "url('../assets/images/football-goal.jpg')",
+        'football-bg': "url('../assets/images/bg-football.png')",
       },
       colors: {
         'main-colour': '#1F2937',
