@@ -56,22 +56,22 @@ function Home() {
 
             <section className='grid no__highlights grid-cols-4 mx-auto w-full px-8 text-center gap-4 z-10'>
               <Link to='/calculator'>
-                <article className='outline outline-black outline-4 rounded h-fit p-4 bg-green-700 flex items-center justify-center'>
+                <article className='outline outline-black outline-4 rounded h-fit p-4 bg-green-700 flex items-center justify-center hover:bg-green-300'>
                   CALCULATOR
                 </article>
               </Link>
               <Link to='/lessons'>
-                <article className='outline outline-black outline-4 rounded h-fit p-4 bg-green-700 flex items-center justify-center'>
+                <article className='outline outline-black outline-4 rounded h-fit p-4 bg-green-700 flex items-center justify-center hover:bg-green-300'>
                   LESSONS
                 </article>
               </Link>
               <Link to='/simulator'>
-                <article className='outline outline-black outline-4 rounded h-fit p-4 bg-green-700 flex items-center justify-center'>
+                <article className='outline outline-black outline-4 rounded h-fit p-4 bg-green-700 flex items-center justify-center hover:bg-green-300'>
                   SIMULATOR
                 </article>
               </Link>
               <Link to='/forum'>
-                <article className='outline outline-black outline-4 rounded h-fit p-4 bg-green-700 flex items-center justify-center'>
+                <article className='outline outline-black outline-4 rounded h-fit p-4 bg-green-700 flex items-center justify-center hover:bg-green-300'>
                   FORUM
                 </article>
               </Link>
