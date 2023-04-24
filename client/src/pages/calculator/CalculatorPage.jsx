@@ -3,27 +3,27 @@ import { Link } from 'react-router-dom';
 // Components
 import Calculator from '../../components/calculator/Calculator';
 import Navbar from '../../components/nav/Navbar';
-import CalculationsExplained from './CalculationsExplained';
+import CalculationsExplained from '../../components/calculator/CalculationsExplained';
 
 function CalculatorPage() {
   return (
-    <div className='bg-white dark:bg-black grid grid-rows-reg min-h-screen'>
+    <div className='bg-yellow-400 dark:bg-black grid grid-rows-reg min-h-screen'>
       <Navbar />
 
-      <section className='grid grid-rows-rev bg-red-500 p-4'>
+      <section className='grid grid-rows-rev p-4 gap-2'>
         {/* Calculator */}
-        <main className='grid lg:grid-flow-col bg-blue-400'>
-          <section className='grid bg-blue-400 p-2'>
+        <main className='grid lg:grid-flow-col gap-2'>
+          <section className='grid outline outline-2 outline-black rounded'>
             <Calculator />
           </section>
 
           {/* Explained */}
-          <section className='grid bg-green-400'>
+          <section className='grid outline outline-2 outline-black rounded'>
             <CalculationsExplained />
           </section>
         </main>
 
-        <section className='bg-yellow-400 p-4 text-xl'>
+        <section className='p-4 text-xl bg-[#ffa500] outline outline-2 outline-black rounded'>
           <article>
             Learn to use the calculator in the{' '}
             <Link to='/simulator'>

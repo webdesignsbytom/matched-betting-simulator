@@ -1,5 +1,5 @@
 {
-  "name": "matched-betting-server",
+  "name": "matched-bettings-imulator",
   "version": "1.0.0",
   "description": "player, link and forum data",
   "main": "src/server.js",

@@ -1,9 +1,9 @@
 import React, { useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-// Images
-import Logo from '../../assets/images/logo.png';
 // Context
 import { UserContext } from '../../context/UserContext';
+// Images
+import Logo from '../../assets/images/logo.png';
 // Utils
 import { userSampleData } from '../../utils/data/UserData';
 
@@ -21,7 +21,7 @@ function Navbar() {
   };
 
   return (
-    <header className='flex bg-green-300 justify-between items-center p-4 border-b-4 border-blue-700 border-solid'>
+    <header className='flex bg-green-700 justify-between items-center p-4 border-b-4 border-black border-solid'>
       <div className='pl-2'>
         <Link to='/'>
           <img src={Logo} className='w-8 h-8' alt='Matched Betting' />
@@ -49,6 +49,13 @@ function Navbar() {
               <Link to='/lessons'>
                 <span className='font-semibold text-black hover:text-gray-600 text-xl'>
                   Lessons
+                </span>
+              </Link>
+            </li>
+            <li>
+              <Link to='/simulator'>
+                <span className='font-semibold text-black hover:text-gray-600 text-xl'>
+                  Simulator
                 </span>
               </Link>
             </li>

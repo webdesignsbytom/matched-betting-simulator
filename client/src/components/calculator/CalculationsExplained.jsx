@@ -5,7 +5,7 @@ function CalculationsExplained() {
     <section className='grid bg-white p-2'>
       {/* Header */}
       <header>
-        <article className='grid justify-center bg-green-200 p-2 text-center w-full h-fit'>
+        <article className='grid justify-center bg-green-200 outline outline-2 outline-black rounded p-2 text-center w-full h-fit'>
           <h1 className='font-semibold text-3xl'>Calculation Explained</h1>
           <h2 className='font-semibold text-xl'>
             Learn how to use the calculator for a variety of bet types.
