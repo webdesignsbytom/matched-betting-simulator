@@ -44,3 +44,4 @@ Backend: Express, Prisma, JavaScript,
 
 1. Link to ERD [ERD...](https://github.com/webdesignsbytom/matchedBetting-tailwind/blob/main/assets/ERD)
 2. Original Design sketches [Sketch](https://github.com/webdesignsbytom/matchedBetting-tailwind/tree/main/assets/wireframe)
+3. Odds API endpoints [API](https://the-odds-api.com/liveapi/guides/v4/#parameters-2)
