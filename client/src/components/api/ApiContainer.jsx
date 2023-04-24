@@ -27,7 +27,7 @@ function ApiContainer() {
       </div>
       <section className='grid bg-red-500 grid-cols-2 h-full'>
         <section className='bg-blue-200 grid h-full w-full'>
-          <h6 className='text-center'>Bookie (Ladbrokes)</h6>
+          <h6 className='text-center'>Bookie (Various)</h6>
           <ul className='grid gap-0 overflow-y-scroll max-h-[320px] w-full'>
             {allFoundOdds.length &&
               allFoundOdds.map((match, index) => {
