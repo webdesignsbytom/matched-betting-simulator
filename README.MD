@@ -2,8 +2,8 @@
 
 Macthed betting training is designed to teach you how to make a free bet from a bookie to guarntee a small profit.
 
-This app is deployed at [Matched Betting Simulator](https://64461d64f544917ddd3c4d62--clever-rolypoly-136b82.netlify.app/calculator)
-
+This app is deployed at [Matched Betting Simulator](https://64461d64f544917ddd3c4d62--clever-rolypoly-136b82.netlify.app/)
+Check out the calculator
 ## Table of contents
 
 - [Matched Betting Simulator](#matched-betting-simulator)
