@@ -17,28 +17,28 @@ const UserContextProvider = ({ children }) => {
   );
   const [toggleCookiePolicy, setToggleCookiePolicy] = useState(false);
 
-  useEffect(() => {
-    const decodedUserData = LoggedInUser();
+  // useEffect(() => {
+  //   const decodedUserData = LoggedInUser();
 
-    if (decodedUserData) {
-      const userId = decodedUserData.id;
+  //   if (decodedUserData) {
+  //     const userId = decodedUserData.id;
 
-      client
-        .get(`/users/${userId}`)
-        .then((res) => {
-          setUser(res.data.data.user);
-        })
-        .catch((err) => {
-          console.error('Unable to retrieve user data', err);
-        });
-    }
+  //     client
+  //       .get(`/users/${userId}`)
+  //       .then((res) => {
+  //         setUser(res.data.data.user);
+  //       })
+  //       .catch((err) => {
+  //         console.error('Unable to retrieve user data', err);
+  //       });
+  //   }
 
-    const cookie = localStorage.getItem('CookiePolicy');
+  //   const cookie = localStorage.getItem('CookiePolicy');
 
-    if (cookie) {
-      setToggleCookiePolicy(true);
-    }
-  }, []);
+  //   if (cookie) {
+  //     setToggleCookiePolicy(true);
+  //   }
+  // }, []);
 
   return (
     <UserContext.Provider

@@ -1,6 +1,22 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import client from '../../utils/axios/client';
 
 function ApiContainer() {
+  const [allFoundOdds, setAllFoundOdds] = useState([])
+
+  useEffect(() => {
+    client
+        .getAPI(`https://api.the-odds-api.com/v4/sports/upcoming/odds/?&regions=uk&markets=h2h&apiKey=deacd793ace1d4868aa674bed9b79adb`)
+        .then((res) => {
+          console.log('res', res.data);
+          setAllFoundOdds(res.data);
+        })
+        .catch((err) => {
+          console.error('Unable to retrieve odds', err);
+        });
+  }, [])
+
+  console.log('all found', allFoundOdds);
   return (
     <section className='grid grid-rows-reg h-full'>
       <div className='text-center grid gap-0 grid-flow-col justify-between px-2 py-1 border-b-2 border-black border-solid'>
