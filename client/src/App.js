@@ -15,7 +15,7 @@ import SimulatorPage from './pages/simulator/SimulatorPage';
 function App() {
   return (
     <Routes>
-      <Route path='/' element={<Home />} />
+      <Route path='/' element={<Home />} index />
       <Route path='/calculator' element={<CalculatorPage />} />
       <Route path='/simulator' element={<SimulatorPage />} />
       <Route path='/lessons' element={<Lessons />} />
