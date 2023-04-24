@@ -11,24 +11,28 @@ function Lessons() {
     setIsPlaying(!isPlaying);
   };
   return (
-    <>
+    <div className='min-h-screen grid grid-rows-reg bg-yellow-400'>
       <Navbar />
 
-      <header className='lessons__header__container'>
-        <h2>Learn How To Play</h2>
-        <span>With our exclusive interactive game</span>
-      </header>
+      <section>
+        <section className='text-center w-full py-1'>
+          <h1 className='text-2xl font-semibold'>Learn How To Play</h1>
+          <h2>With our exclusive interactive game!</h2>
+        </section>
 
-      <HowToPlay />
+        <section className='px-6'>
+          <HowToPlay />
+        </section>
 
-      <main className='lessons__game__container'>
-        {isPlaying ? (
-          <Game />
-        ) : (
-          <button onClick={togglePlaying}>Start Game</button>
-        )}
-      </main>
-    </>
+        <main className='outline outline-4 outline-black rounded grid mx-4 mt-6 bg-[#008080]'>
+          {isPlaying ? (
+            <Game />
+          ) : (
+            <button onClick={togglePlaying}>Start Game</button>
+          )}
+        </main>
+      </section>
+    </div>
   );
 }
 

@@ -23,7 +23,7 @@ function Navbar() {
   const toggleNavbar = () => {};
 
   return (
-    <header className='flex bg-green-700 justify-between items-center p-4 border-b-4 border-black border-solid w-full'>
+    <header className='flex bg-green-700 justify-between items-center p-2 border-b-4 border-black border-solid w-full'>
       <div className='pl-2'>
         <Link to='/'>
           <img src={Logo} className='w-8 h-8' alt='Matched Betting' />
@@ -60,56 +60,56 @@ function Navbar() {
           <ul className='flex gap-6'>
             <li>
               <Link to='/'>
-                <span className='font-semibold text-black hover:text-gray-600 text-lg'>
+                <span className='font-medium text-black hover:text-gray-600'>
                   Home
                 </span>
               </Link>
             </li>
             <li>
               <Link to='/calculator'>
-                <span className='font-semibold text-black hover:text-gray-600 text-lg'>
+                <span className='font-medium text-black hover:text-gray-600'>
                   Calculator
                 </span>
               </Link>
             </li>
             <li>
               <Link to='/lessons'>
-                <span className='font-semibold text-black hover:text-gray-600 text-lg'>
+                <span className='font-medium text-black hover:text-gray-600'>
                   Lessons
                 </span>
               </Link>
             </li>
             <li>
               <Link to='/simulator'>
-                <span className='font-semibold text-black hover:text-gray-600 text-lg'>
+                <span className='font-medium text-black hover:text-gray-600'>
                   Simulator
                 </span>
               </Link>
             </li>
             <li>
               <Link to='/forum'>
-                <span className='font-semibold text-black hover:text-gray-600 text-lg'>
+                <span className='font-medium text-black hover:text-gray-600'>
                   Forum
                 </span>
               </Link>
             </li>
             <li>
               <Link to='/faq'>
-                <span className='font-semibold text-black hover:text-gray-600 text-lg'>
+                <span className='font-medium text-black hover:text-gray-600'>
                   FAQ
                 </span>
               </Link>
             </li>
             <li>
               <Link to='/links'>
-                <span className='font-semibold text-black hover:text-gray-600 text-lg'>
+                <span className='font-medium text-black hover:text-gray-600'>
                   Links
                 </span>
               </Link>
             </li>
             <li onClick={signOut}>
               <Link to='/'>
-                <span className='font-semibold text-black hover:text-gray-600 text-lg'>
+                <span className='font-medium text-black hover:text-gray-600'>
                   Sign Out
                 </span>
               </Link>

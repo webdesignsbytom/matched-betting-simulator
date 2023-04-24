@@ -1,7 +1,5 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
-// Context
-import { UserContext } from '../../context/UserContext';
 // Components
 import Navbar from '../../components/nav/Navbar';
 // Images
@@ -9,11 +7,6 @@ import FootballPlayer from '../../assets/images/player.png';
 import BgFootball from '../../assets/images/smBall.png';
 
 function Home() {
-  const { user } = useContext(UserContext);
-  console.log(
-    'process.env.REACT_APP_USER_TOKEN',
-    process.env.REACT_APP_USER_TOKEN
-  );
 
   return (
     <div className='grid h-screen grid-rows-reg overflow-hidden max-h-screen bg-yellow-400'>
@@ -48,7 +41,7 @@ function Home() {
                     We also boast interactive training tools and sandbox modes
                     where you can bet fake money against realtime bookie and
                     exchange odds! Practice and see your money grow before you
-                    try out this perfectly legal money making scheme!f
+                    try out this perfectly legal money making scheme!
                   </p>
                 </section>
               </article>

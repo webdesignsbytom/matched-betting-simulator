@@ -2,7 +2,7 @@ import React from 'react';
 
 function CalculationsExplained() {
   return (
-    <section className='grid bg-white p-2'>
+    <section className='grid font-poppins leading-5 bg-white p-2'>
       {/* Header */}
       <header>
         <article className='grid justify-center bg-green-200 outline outline-2 outline-black rounded p-2 text-center w-full h-fit'>
@@ -14,7 +14,7 @@ function CalculationsExplained() {
       </header>
 
       {/* Explained */}
-      <section className='text-center'>
+      <section className='text-center text-sm'>
         <article>
           <p>
             This custom built calculator will take the odds of two bets and
@@ -32,7 +32,7 @@ function CalculationsExplained() {
         </article>
       </section>
 
-      <section className=''>
+      <section className='text-sm'>
         <div className=''>
           <div>
             <p>
@@ -52,7 +52,7 @@ function CalculationsExplained() {
         </div>
       </section>
 
-      <article className='calculation__type'>
+      <article className='text-sm'>
         <div className='calculation__type__title'>
           <h3>Qualifying Bet Lay Stake</h3>
         </div>
@@ -68,7 +68,7 @@ function CalculationsExplained() {
         </div>
       </article>
 
-      <article className='calculation__type'>
+      <article className='text-sm'>
         <div className='calculation__type__title'>
           <h3>Free Bet SNR Lay Stake(StakeNotReturned)</h3>
         </div>
@@ -78,7 +78,7 @@ function CalculationsExplained() {
         </div>
       </article>
 
-      <article className='calculation__type'>
+      <article className='text-sm'>
         <div className='calculation__type__title'>
           <h3>Free Bet SR Lay Stake (StakeReturned)</h3>
         </div>
@@ -87,7 +87,7 @@ function CalculationsExplained() {
         </div>
       </article>
 
-      <section className='grid h-fit w-full'>
+      <section className='grid h-fit w-full text-sm'>
         <article className='grid h-fit p-0'>
           <h4 className='font-semibold'>Notes</h4>
           <ul className='pl-8 h-min grid leading-5 gap-0 list-disc p-2'>

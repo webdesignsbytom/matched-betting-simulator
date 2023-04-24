@@ -1,11 +1,11 @@
 import React, { useContext, useEffect, useState } from 'react';
+// Context
+import { GameContext } from '../../../context/GameContext';
 import BankingBar from './BankingBar';
 import StageOne from './StageOne';
 import StageTwo from './StageTwo';
 import StageThree from './StageThree';
 import StageFour from './StageFour';
-import './style.css';
-import { GameContext } from '../../../context/GameContext';
 import StageFive from './StageFive';
 import StageSix from './StageSix';
 import RandomResults from './RandomResults';
@@ -13,7 +13,6 @@ import StageEight from './StageEight';
 import BetTickets from './BetTickets';
 
 function Game() {
-
   const {
     stage,
     betFairBank,
@@ -29,8 +28,7 @@ function Game() {
     bankToggle,
     setBankToggle,
   } = useContext(GameContext);
-useEffect(() => {
-  }, []);
+  useEffect(() => {}, []);
 
   return (
     <>
@@ -38,7 +36,7 @@ useEffect(() => {
       <StageOne />
       {stage.stageTwoOn && <StageTwo />}
       {stage.stageThreeOn && <StageThree />}
-      {stage.stageThreeOn && <BankingBar />}; 
+      {stage.stageThreeOn && <BankingBar />};
       {stage.stageFourOn && <StageFour />}
       {stage.stageFourOn && <BetTickets />}
       {stage.stageFiveOn && <StageFive />}
