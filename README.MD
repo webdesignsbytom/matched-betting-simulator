@@ -1,23 +1,29 @@
-# Matched Betting Training
+# Matched Betting Simulator
 
 Macthed betting training is designed to teach you how to make a free bet from a bookie to guarntee a small profit.
 
-This app is deployed at [https://sprightly-fudge-16a82b.netlify.app/](https://sprightly-fudge-16a82b.netlify.app/)
+This app is deployed at [Matched Betting Simulator](https://64461d64f544917ddd3c4d62--clever-rolypoly-136b82.netlify.app/calculator)
 
 ## Table of contents
 
-- [Matched Betting Training](#matched-betting-training)
+- [Matched Betting Simulator](#matched-betting-simulator)
   - [Table of contents](#table-of-contents)
   - [General info](#general-info)
+  - [Main Feature](#main-feature)
   - [Technologies](#technologies)
   - [Run this project locally](#run-this-project-locally)
   - [Design Information](#design-information)
 
 ## General info
 
-Contains a specialised calculator that works out the correct amount to bet based on two different sets of odds. 
+Contains a specialised calculator that works out the correct amount to bet based on two different sets of odds.
 
 Server deployment with Vercel @ [https://webdesignsbytom-app.vercel.app/](https://webdesignsbytom-app.vercel.app/)
+
+## Main Feature
+
+The matched betting calculator uses several different formulas to tell you exactly what bets to make
+<img src='./client/src/assets/images/calculatorMd.png'>
 
 ## Technologies
 
