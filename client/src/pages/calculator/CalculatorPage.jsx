@@ -23,7 +23,7 @@ function CalculatorPage() {
           </section>
         </main>
 
-        <section className='bg-yellow-400 p-4'>
+        <section className='bg-yellow-400 p-4 text-xl'>
           <article>
             Learn to use the calculator in the{' '}
             <Link to='/simulator'>

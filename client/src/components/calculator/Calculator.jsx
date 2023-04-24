@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
 // Utils
 import { betSampleData, betSampleResultsData } from '../../utils/data/BetData';
 import {
@@ -111,13 +111,13 @@ function Calculator() {
     <section className='grid bg-[#008080]'>
       <main className='grid lg:grid-rows-a1a'>
         <section className='h-fit'>
-          <article className='p-1 flex items-center justify-between'>
-            <h2 className='font-semibold text-lg pl-2'>Select Bet Type:</h2>
+          <article className='p-2 flex items-center justify-between'>
+            <h2 className='font-semibold text-xl pl-2'>Select Bet Type:</h2>
             <p className='pr-2'>
-            Selected Bet Type: <strong>{betType}</strong>
-          </p>
+              Selected Bet Type: <strong>{betType}</strong>
+            </p>
           </article>
-          <form className='p-2 bg-[#ffa500]'>
+          <form className='p-4 bg-[#ffa500]'>
             <label htmlFor='qualifyingBet'>
               Qualifying Bet
               <input
@@ -163,72 +163,140 @@ function Calculator() {
               />
             </label>
           </form>
-          
-          <article className='p-2 h-fit'>
-            <p>Be sure to have the correct setting selected. Double check any bets and odds. Do help keep track of multiple bets, you can download the free print out <Link><span>here</span></Link></p>
+
+          <article className='p-4 h-fit'>
+            <p>
+              Be sure to have the correct setting selected. Double check any
+              bets and odds. Do help keep track of multiple bets, you can
+              download the free print out{' '}
+              <Link>
+                <span>here</span>
+              </Link>
+            </p>
           </article>
         </section>
 
         {/* Calculator */}
-        <section className='grid h-full bg-[#ffa500]'>
-          <div className='backbet__container'>
-            <label htmlFor='backBetStake'>
-              Back Bet Stake:
-              <input
-                type='number'
-                id='backBetStake'
-                name='backBetStake'
-                onChange={handleBetData}
-              />
-            </label>
-            <label htmlFor='backBetOdds'>
-              Back Bet odds:
-              <input
-                type='number'
-                id='backBetOdds'
-                name='backBetOdds'
-                onChange={handleBetData}
-              />
-            </label>
-            <label htmlFor='bookiecommision'>
-              Bookie commision:
-              <input
-                type='number'
-                id='bookiecommision'
-                name='bookiecommision'
-                placeholder='0'
-                onChange={handleBetData}
-              />
-              %
-            </label>
-          </div>
+        <section className='grid h-fit bg-[#ffa500] py-4'>
+          <section className='mb-4'>
+            <div className='pl-3'>
+              <h4 className='text-xl font-semibold'>Bookie Bets</h4>
+            </div>
+            <section className='grid grid-flow-col'>
+              <div className='flex h-fit'>
+                <label htmlFor='backBetStake' className='text-xl pr-2'>
+                  Back Bet Stake:
+                </label>
+                <input
+                  type='number'
+                  id='backBetStake'
+                  name='backBetStake'
+                  onChange={handleBetData}
+                  className='p-1'
+                />
+              </div>
 
-          <div className='laybet__container'>
-            <label htmlFor='layBetOdds'>Lay Bet odds:</label>
-            <input
-              type='number'
-              id='layBetOdds'
-              name='layBetOdds'
-              onChange={handleBetData}
-            />
+              <div className='flex h-fit'>
+                <label htmlFor='backBetOdds' className='text-xl pr-2'>
+                  Back Bet odds:
+                </label>
+                <input
+                  type='number'
+                  id='backBetOdds'
+                  name='backBetOdds'
+                  onChange={handleBetData}
+                  className='p-1'
+                />
+              </div>
 
-            <label htmlFor='exchangecommision'>
-              Exchange commision:
-              <input
-                type='number'
-                id='exchangecommision'
-                name='exchangecommision'
-                placeholder='5'
-                onChange={handleBetData}
-              />
-              %
-            </label>
-          </div>
+              <div className='flex h-fit items-center'>
+                <label htmlFor='bookiecommision' className='text-xl pr-2'>
+                  Bookie commision:
+                </label>
+                <input
+                  type='number'
+                  id='bookiecommision'
+                  name='bookiecommision'
+                  placeholder='0'
+                  className='w-[50px] p-1'
+                  onChange={handleBetData}
+                />
+                <span className='pl-2 font-semibold'>%</span>
+              </div>
+            </section>
+          </section>
 
-          <div className='laystake__container'>
-            <h3>Set your lay stake to £{layStake}</h3>
-            <span>Your liability will be {liability}</span>
-          </div>
+          <section className='grid h-fit'>
+            <div className='pl-3'>
+              <h4 className='text-xl font-semibold'>Exchange Bets</h4>
+            </div>
+            <section className='flex'>
+              <div className='flex h-fit'>
+                <label htmlFor='layBetOdds' className='text-xl pr-2'>
+                  Lay Bet odds:
+                </label>
+                <input
+                  type='number'
+                  id='layBetOdds'
+                  name='layBetOdds'
+                  onChange={handleBetData}
+                  className='p-1'
+                />
+              </div>
+              <div className='flex h-fit items-center'>
+                <label htmlFor='exchangecommision' className='text-xl pr-2'>
+                  Exchange commision:
+                </label>
+                <input
+                  type='number'
+                  id='exchangecommision'
+                  name='exchangecommision'
+                  placeholder='5'
+                  onChange={handleBetData}
+                  className='p-1'
+                />
+                <span className='pl-2 font-semibold'>%</span>
+              </div>
+            </section>
+          </section>
+          {/* Results */}
+          <section className='p-4 my-6 grid grid-cols-2 bg-[#008080] h-full'>
+            <article className='text-xl grid items-center h-fit'>
+              <div className='mb-2'>
+                <h3>
+                  Set your lay stake to:{' '}
+                  <span className='bg-white px-2'>£{layStake}</span>
+                </h3>
+              </div>
+              <div>
+                <p>
+                  Your liability will be{' '}
+                  <span className='bg-white px-2'>£{liability}</span>
+                </p>
+              </div>
+            </article>
+
+            {/* Bet Types */}
+            <section className='text-center mx-auto'>
+              <div className='mb-2'>
+                <h5>Bet Types</h5>
+              </div>
+              <ul className='grid h-fit gap-0 list-disc w-fit justify-center'>
+                <li>
+                  <p>Qualifying Bet</p>
+                </li>
+                <li>
+                  <p>Free Bet (SNR)</p>
+                </li>
+                <li>
+                  <p>Free Bet (SR)</p>
+                </li>
+                <li>
+                  <p>Refund Bet</p>
+                </li>
+              </ul>
+            </section>
+          </section>
         </section>
 
         {/* results table
@@ -239,49 +307,70 @@ function Calculator() {
           ]
         */}
 
-        <section className='results__container h-fit bg-red-300'>
-          <table className='results__table'>
-            <thead>
-              <tr className='table__row'>
-                <th className='ignore'></th>
-                <th style={{ backgroundColor: 'lightBlue' }}>Bookie</th>
-                <th style={{ backgroundColor: '#e24343' }}>Exchange</th>
-                <th style={{ backgroundColor: 'pink' }}>Total Profit</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr className='table__row'>
-                <td style={{ backgroundColor: 'lightBlue' }}>Bookie Wins</td>
-                <td style={{ backgroundColor: 'lightBlue' }}>
-                  {' '}
-                  {bookieResults.bookieResults}
-                </td>
-                <td style={{ backgroundColor: 'lightBlue' }}>
-                  {' '}
-                  {bookieResults.exchangeResults}
-                </td>
-                <td style={{ backgroundColor: 'pink' }}>
-                  {' '}
-                  £ {bookieResults.totalProfit}
-                </td>
-              </tr>
-              <tr className='table__row'>
-                <td style={{ backgroundColor: '#e24343' }}>Exchange Wins</td>
-                <td style={{ backgroundColor: '#e24343' }}>
-                  {' '}
-                  {exchangeResults.bookieResults}
-                </td>
-                <td style={{ backgroundColor: '#e24343' }}>
-                  {' '}
-                  {exchangeResults.exchangeResults}
-                </td>
-                <td style={{ backgroundColor: 'pink' }}>
-                  {' '}
-                  £ {exchangeResults.totalProfit}
-                </td>
-              </tr>
-            </tbody>
-          </table>
+        <section className='p-4 mb-10 h-fit grid grid-cols-2 bg-red-300'>
+          <section>
+            <table className='text-xl'>
+              <thead>
+                <tr className=''>
+                  <th className=''></th>
+                  <th style={{ backgroundColor: 'lightBlue' }} className='p-2'>
+                    Bookie
+                  </th>
+                  <th style={{ backgroundColor: '#e24343' }} className='p-2'>
+                    Exchange
+                  </th>
+                  <th style={{ backgroundColor: 'pink' }} className='p-2'>
+                    Total Profit
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr className=''>
+                  <td style={{ backgroundColor: 'lightBlue' }} className='p-2'>
+                    Bookie Wins
+                  </td>
+                  <td style={{ backgroundColor: 'lightBlue' }} className='p-2'>
+                    {' '}
+                    {bookieResults.bookieResults}
+                  </td>
+                  <td style={{ backgroundColor: 'lightBlue' }} className='p-2'>
+                    {' '}
+                    {bookieResults.exchangeResults}
+                  </td>
+                  <td style={{ backgroundColor: 'pink' }} className='p-2'>
+                    {' '}
+                    £ {bookieResults.totalProfit}
+                  </td>
+                </tr>
+                <tr className='table__row'>
+                  <td style={{ backgroundColor: '#e24343' }} className='p-2'>
+                    Exchange Wins
+                  </td>
+                  <td style={{ backgroundColor: '#e24343' }} className='p-2'>
+                    {' '}
+                    {exchangeResults.bookieResults}
+                  </td>
+                  <td style={{ backgroundColor: '#e24343' }} className='p-2'>
+                    {' '}
+                    {exchangeResults.exchangeResults}
+                  </td>
+                  <td style={{ backgroundColor: 'pink' }} className='p-2'>
+                    {' '}
+                    £ {exchangeResults.totalProfit}
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </section>
+
+          {/* Explained more */}
+          <section>
+            <p>
+              Remember the qualifying bet will lose a small amount due to the
+              exchange commision. However you will make this back on the free
+              bet. Just remember to calculate the correct overall winnings.
+            </p>
+          </section>
         </section>
       </main>
     </section>
