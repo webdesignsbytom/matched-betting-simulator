@@ -109,16 +109,19 @@ function Calculator() {
     <section className='grid bg-[#008080]'>
       <main className='grid lg:grid-rows-a1a'>
         <section className='h-fit'>
-          <article className='p-2 flex items-center justify-between'>
+          <article className='p-2 grid md:flex grid-flow-col items-center justify-between'>
             <h2 className='font-semibold text-xl pl-2'>Select Bet Type:</h2>
-            <p className='pr-2'>
-              Selected Bet Type: <strong>{betType}</strong>
-            </p>
+            <div>
+              <p className='grid pr-2'>
+                Selected Bet Type: <strong>{betType}</strong>
+              </p>
+            </div>
           </article>
-          <form className='p-4 bg-[#ffa500]'>
+          <form className='p-4 grid grid-cols-2 md:grid-cols-4 bg-[#ffa500]'>
             <label htmlFor='qualifyingBet'>
               Qualifying Bet
               <input
+                className='ml-4'
                 type='radio'
                 name='betType'
                 value='Qualifying Bet'
@@ -130,6 +133,7 @@ function Calculator() {
             <label htmlFor='freeBet'>
               Free Bet (SNR)
               <input
+                className='ml-4'
                 type='radio'
                 name='betType'
                 value='Free Bet'
@@ -141,6 +145,7 @@ function Calculator() {
             <label htmlFor='freeBetSR'>
               Free Bet (SR)
               <input
+                className='ml-4'
                 type='radio'
                 name='betType'
                 value='Free Bet SR'
@@ -152,6 +157,7 @@ function Calculator() {
             <label htmlFor='refundBet'>
               Refund Bet
               <input
+                className='ml-4'
                 type='radio'
                 name='betType'
                 value='Refund Bet'
@@ -162,7 +168,7 @@ function Calculator() {
             </label>
           </form>
 
-          <article className='p-4 h-fit'>
+          <article className='p-2 md:p-4 h-fit'>
             <p>
               Be sure to have the correct setting selected. Double check any
               bets and odds. Do help keep track of multiple bets, you can
@@ -175,12 +181,13 @@ function Calculator() {
         </section>
 
         {/* Calculator */}
-        <section className='grid h-fit bg-[#ffa500] py-4'>
+        <section className='grid h-fit bg-[#ffa500] pt-1 md:py-4'>
           <section className='mb-4'>
             <div className='pl-3'>
               <h4 className='text-xl font-semibold'>Bookie Bets</h4>
             </div>
-            <section className='grid grid-flow-col'>
+
+            <section className='grid gap-2 md:grid-flow-col'>
               <div className='flex h-fit'>
                 <label htmlFor='backBetStake' className='text-xl pr-2'>
                   Back Bet Stake:
@@ -228,7 +235,7 @@ function Calculator() {
             <div className='pl-3'>
               <h4 className='text-xl font-semibold'>Exchange Bets</h4>
             </div>
-            <section className='flex'>
+            <section className='grid md:grid-flow-col'>
               <div className='flex h-fit'>
                 <label htmlFor='layBetOdds' className='text-xl pr-2'>
                   Lay Bet odds:
@@ -258,7 +265,7 @@ function Calculator() {
             </section>
           </section>
           {/* Results */}
-          <section className='p-4 my-6 grid grid-cols-2 bg-[#008080] h-full'>
+          <section className='p-4 my-6 grid md:grid-cols-2 bg-[#008080] h-fit md:h-full'>
             <article className='text-xl grid items-center h-fit'>
               <div className='mb-2'>
                 <h3>
@@ -275,7 +282,7 @@ function Calculator() {
             </article>
 
             {/* Bet Types */}
-            <section className='text-center mx-auto'>
+            <section className='hidden md:flex text-center mx-auto'>
               <div className='mb-2'>
                 <h5>Bet Types</h5>
               </div>
@@ -305,7 +312,7 @@ function Calculator() {
           ]
         */}
 
-        <section className='p-4 mb-10 h-fit grid grid-cols-2 bg-red-300'>
+        <section className='p-4 mb-10 h-fit grid md:grid-cols-2 bg-red-300'>
           <section>
             <table className='text-xl'>
               <thead>

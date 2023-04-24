@@ -4,7 +4,7 @@ module.exports = {
   theme: {
     extend: {
       backgroundImage: {
-        'news-bg': "url('../assets/img')",
+        'main-bg': "url('../assets/images/football-goal.jpg')",
       },
       colors: {
         'main-colour': '#1F2937',
