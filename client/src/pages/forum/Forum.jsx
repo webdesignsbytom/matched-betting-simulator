@@ -67,7 +67,7 @@ function Forum() {
       <section className='grid grid-rows-reg p-2'>
         <header className='p-4 grid'>
           <article>
-            <h1 className='font-bruno text-3xl'>Forum</h1>
+            <h1 className='font-bruno text-3xl font-semibold'>Forum</h1>
             <h2>
               Look for user discussions, tips and latests bet information in our
               various forums

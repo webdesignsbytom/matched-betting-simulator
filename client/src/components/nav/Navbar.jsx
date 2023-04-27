@@ -94,13 +94,6 @@ function Navbar() {
               </Link>
             </li>
             <li>
-              <Link to='/faq'>
-                <span className='font-medium text-black hover:text-gray-600'>
-                  FAQ
-                </span>
-              </Link>
-            </li>
-            <li>
               <Link to='/links'>
                 <span className='font-medium text-black hover:text-gray-600'>
                   Links

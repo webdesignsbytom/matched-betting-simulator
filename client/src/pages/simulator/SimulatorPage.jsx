@@ -11,9 +11,9 @@ function SimulatorPage() {
       <Navbar />
       <main className='grid h-full grid-rows-reg'>
         {/* TITLES */}
-        <section>
-          <article className='text-center px-4 pt-4 pb-1'>
-            <h1 className='text-3xl font-semibold mb-1'>Betting Simulator</h1>
+        <section className='pl-2'>
+          <article className='text-left px-4 pt-4 pb-1'>
+            <h1 className='text-3xl font-bruno font-semibold mb-1'>Betting Simulator</h1>
             <h2 className=''>
               Use real sports in our simulator with our Odds API!
             </h2>
