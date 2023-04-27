@@ -66,6 +66,8 @@ module.exports = {
       },
       fontFamily: {
         'poppins': ['Poppins', 'sans-serif'],
+        'fira': ['Fira', 'sans-serif'],
+        'bruno': ['Bruno Ace SC', 'cursive'],
       },
     },
   },

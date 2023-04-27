@@ -17,11 +17,11 @@ function Home() {
           <section className='relative grid  w-full'>
             <div className='grid items-center px-4'>
               <article className='outline z-10 outline-black outline-4 text-center rounded'>
-                <section className='py-4'>
-                  <h1 className='text-5xl font-semibold pb-2'>WELCOME TO!</h1>
-                  <h2 className='text-3xl font-semibold'>
+                <section className='py-4 font-bruno'>
+                  <h2 className='text-4xl font-semibold pb-2'>WELCOME TO!</h2>
+                  <h1 className='text-5xl  font-semibold'>
                     Matched Betting Simulator
-                  </h2>
+                  </h1>
                 </section>
 
                 <section className='pb-6 text-xl'>
@@ -31,7 +31,7 @@ function Home() {
                     as part of their promotions. Using a simple maths formula,
                     that the specially made{' '}
                     <Link to='/calculator'>
-                      <span className='text-hyperlink-blue'>
+                      <span className='text-hyperlink-blue font-semibold'>
                         Betting Calculator
                       </span>
                     </Link>{' '}
@@ -47,7 +47,7 @@ function Home() {
               </article>
             </div>
 
-            <section className='grid no__highlights grid-cols-4 mx-auto w-full px-8 text-center gap-4 z-10'>
+            <section className='grid no__highlights font-semibold grid-cols-4 mx-auto w-full px-8 text-center gap-4 z-10'>
               <Link to='/calculator'>
                 <article className='outline outline-black outline-4 rounded h-fit p-4 bg-green-700 flex items-center justify-center hover:bg-green-300'>
                   CALCULATOR
