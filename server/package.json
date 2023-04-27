@@ -5,6 +5,7 @@
   "main": "src/server.js",
   "type": "module",
   "scripts": {
+    "postinstall": "prisma generate",
     "start": "nodemon src/server.js"
   },
   "prisma": {
