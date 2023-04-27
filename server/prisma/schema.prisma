@@ -8,6 +8,7 @@ datasource db {
   shadowDatabaseUrl = env("SHADOW_DATABASE_URL")
 }
 
+// USERS
 enum Role {
   USER
   ADMIN
@@ -15,26 +16,90 @@ enum Role {
 }
 
 model User {
-  id             String    @id @default(uuid())
-  email          String    @unique
-  password       String
-  role           Role      @default(USER)
-  profile        Profile?
-  createdEvents  Event[]   @relation("createdEvents")
-  receivedEvents Event[]   @relation("receivedEvents")
-  createdAt      DateTime  @default(now())
-  updatedAt      DateTime? @updatedAt
+  id               String            @id @default(uuid())
+  email            String            @unique
+  password         String
+  role             Role              @default(USER)
+  profile          Profile?
+  SimulatorAccount SimulatorAccount?
+  Post             Post[]
+  Comment          Comment[]
+  Like             Like[]
+  CommentLike      CommentLike[]
+  createdEvents    Event[]           @relation("createdEvents")
+  receivedEvents   Event[]           @relation("receivedEvents")
+  createdAt        DateTime          @default(now())
+  updatedAt        DateTime?         @updatedAt
 }
 
 model Profile {
   id        String    @id @default(uuid())
   username  String    @unique
   userId    String    @unique
-  user      User      @relation(fields: [userId], references: [id])
+  user      User      @relation(fields: [userId], references: [id], onDelete: Cascade)
   createdAt DateTime  @default(now())
   updatedAt DateTime? @updatedAt
 }
 
+model SimulatorAccount {
+  id        Int       @id @default(autoincrement())
+  bank      Decimal   @default(1000)
+  openBets  String[]
+  createdAt DateTime  @default(now())
+  updatedAt DateTime? @updatedAt
+  user      User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId    String    @unique
+}
+
+model Post {
+  id        Int       @id @default(autoincrement())
+  content   String
+  user      User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId    String
+  likes     Like[]
+  comments  Comment[]
+  isPrivate Boolean   @default(false)
+  isPinned  Boolean   @default(false)
+  createdAt DateTime  @default(now())
+  updatedAt DateTime? @updatedAt
+}
+
+model Comment {
+  id        Int           @id @default(autoincrement())
+  content   String        @db.VarChar(150)
+  userId    String
+  user      User          @relation(fields: [userId], references: [id], onDelete: Cascade)
+  postId    Int
+  post      Post          @relation(fields: [postId], references: [id], onDelete: Cascade)
+  likes     CommentLike[]
+  parentId  Int?
+  parent    Comment?      @relation("replies", fields: [parentId], references: [id])
+  replies   Comment[]     @relation("replies")
+  createdAt DateTime      @default(now())
+  updatedAt DateTime?     @updatedAt
+}
+
+model Like {
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId    String
+  post      Post     @relation(fields: [postId], references: [id], onDelete: Cascade)
+  postId    Int
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([userId, postId])
+}
+
+model CommentLike {
+  userId    String
+  user      User    @relation(fields: [userId], references: [id])
+  commentId Int
+  comment   Comment @relation(fields: [commentId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, commentId])
+}
+
+// DEVELOPER MODELS
 // EVENTS
 enum EventType {
   ERROR

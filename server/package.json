@@ -1,6 +1,6 @@
 {
-  "name": "matched-bettings-imulator",
-  "version": "1.0.0",
+  "name": "matched-bettings-simulator",
+  "version": "2.1.2",
   "description": "player, link and forum data",
   "main": "src/server.js",
   "type": "module",

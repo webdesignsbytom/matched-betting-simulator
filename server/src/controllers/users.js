@@ -1,20 +1,16 @@
-const { Prisma } = require('@prisma/client');
-const prisma = require('../utils/prisma');
-const bcrypt = require('bcrypt');
-const jwt = require('jsonwebtoken');
-
-const hashRate = 8;
-
-const {
+import bcrypt from 'bcrypt';
+import {
   findAllUsers,
   findUserByEmail,
   findUserById,
   createUser,
   updateUser,
   deleteUserById,
-} = require('../domain/users');
+} from '../domain/users.js';
 
-const getAllUsers = async (req, res) => {
+const hashRate = 8;
+
+export const getAllUsers = async (req, res) => {
   console.log('user', req.user);
   try {
     //
@@ -24,14 +20,12 @@ const getAllUsers = async (req, res) => {
       return res.status(404).json({ message: `No users found`, code: `404` });
     }
 
-    return res
-      .status(201)
-      .json({
-        message: `Found ${foundUsers.length} users`,
-        code: `201`,
-        data: foundUsers,
-      });
-      //
+    return res.status(201).json({
+      message: `Found ${foundUsers.length} users`,
+      code: `201`,
+      data: foundUsers,
+    });
+    //
   } catch (error) {
     //
     return res.status(500).json({
@@ -42,7 +36,7 @@ const getAllUsers = async (req, res) => {
   }
 };
 
-const createNewUser = async (req, res) => {
+export const createNewUser = async (req, res) => {
   const { email, password } = req.body;
   const lowercaseEmail = email.toLowerCase();
 
@@ -81,16 +75,10 @@ const createNewUser = async (req, res) => {
   }
 };
 
-const updateUserById = async (req, res) => {
+export const updateUserById = async (req, res) => {
   console.log('updateUserById');
-  let {
-    email,
-    username,
-    firstname,
-    lastname,
-    biography,
-    profileImgUrl,
-  } = req.body;
+  let { email, username, firstname, lastname, biography, profileImgUrl } =
+    req.body;
   const userId = Number(req.params.id);
 
   // TODO: all these need to actually care what auth checks
@@ -105,13 +93,20 @@ const updateUserById = async (req, res) => {
       });
     }
 
-    if (email === '' || username === '' || firstname === '' || lastname === '' || biography === '' || profileImgUrl === '') {
-      email = foundUser.email
-      username = foundUser.username
-      firstname = foundUser.firstname
-      lastname = foundUser.lastname
-      biography = foundUser.biography
-      profileImgUrl = foundUser.profileImgUrl
+    if (
+      email === '' ||
+      username === '' ||
+      firstname === '' ||
+      lastname === '' ||
+      biography === '' ||
+      profileImgUrl === ''
+    ) {
+      email = foundUser.email;
+      username = foundUser.username;
+      firstname = foundUser.firstname;
+      lastname = foundUser.lastname;
+      biography = foundUser.biography;
+      profileImgUrl = foundUser.profileImgUrl;
     }
 
     const updatedUser = await updateUser(
@@ -121,7 +116,7 @@ const updateUserById = async (req, res) => {
       firstname,
       lastname,
       biography,
-      profileImgUrl,
+      profileImgUrl
     );
 
     console.log('updaed', updatedUser);
@@ -142,7 +137,8 @@ const updateUserById = async (req, res) => {
     });
   }
 };
-const deleteUser = async (req, res) => {
+
+export const deleteUser = async (req, res) => {
   console.log('delete user');
   const userId = Number(req.params.id);
 
@@ -170,7 +166,7 @@ const deleteUser = async (req, res) => {
   }
 };
 
-const getUserById = async (req, res) => {
+export const getUserById = async (req, res) => {
   console.log('getting by id');
   const userId = Number(req.params.id);
 
@@ -202,10 +198,3 @@ const getUserById = async (req, res) => {
   }
 };
 
-module.exports = {
-  getAllUsers,
-  createNewUser,
-  deleteUser,
-  getUserById,
-  updateUserById,
-};

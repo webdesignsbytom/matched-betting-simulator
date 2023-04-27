@@ -7,8 +7,9 @@ import { join } from 'path';
 import * as url from 'url';
 // Import routers
 import authRouter from './routes/auth.js';
-import eventRouter from './routes/events.js';
+// import eventRouter from './routes/sportEvent.js';
 import userRouter from './routes/users.js';
+import postRouter from './routes/posts.js';
 // Env
 import { HTTP_URL, PORT } from './utils/config.js';
 
@@ -31,12 +32,8 @@ const __dirname = url.fileURLToPath(new URL('.', import.meta.url));
 
 // Start of actions
 app.use('/', authRouter);
-app.use('/complaints', complaintRouter);
-app.use('/contacts', contactRouter);
-app.use('/events', eventRouter);
-app.use('/messages', messageRouter);
-app.use('/notifications', notificationRouter);
-app.use('/reviews', reviewRouter);
+app.use('/posts', postRouter)
+// app.use('/events', eventRouter);
 app.use('/users', userRouter);
 
 // Server interface page

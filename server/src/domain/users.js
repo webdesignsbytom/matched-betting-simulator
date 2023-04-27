@@ -1,17 +1,14 @@
-const { Prisma } = require('@prisma/client');
-const prisma = require('../utils/prisma');
-const bcrypt = require('bcrypt');
-const jwt = require('jsonwebtoken');
+import dbClient from '../utils/dbClient.js';
 
-const findAllUsers = () =>
-  prisma.user.findMany({
+export const findAllUsers = () =>
+  dbClient.user.findMany({
     include: {
       profile: true,
     },
   });
 
-const findUserByEmail = (email) =>
-  prisma.user.findFirst({
+export const findUserByEmail = (email) =>
+  dbClient.user.findFirst({
     where: {
       email: email,
     },
@@ -20,8 +17,8 @@ const findUserByEmail = (email) =>
     },
   });
 
-const findUserById = (userId) =>
-  prisma.user.findFirst({
+export const findUserById = (userId) =>
+  dbClient.user.findFirst({
     where: {
       id: userId,
     },
@@ -30,23 +27,21 @@ const findUserById = (userId) =>
     },
   });
 
-const createUser = (email, password) =>
-  prisma.user.create({
+export const createUser = (email, password) =>
+  dbClient.user.create({
     data: {
       email: email,
       password: password,
       profile: {
-        create: {
-        }
-      }
+        create: {},
+      },
     },
     include: {
       profile: true,
     },
   });
 
-// TODO: will need to add passwird
-const updateUser = (
+export const updateUser = (
   userId,
   email,
   username,
@@ -55,7 +50,7 @@ const updateUser = (
   biography,
   profileImgUrl
 ) =>
-  prisma.user.update({
+  dbClient.user.update({
     where: {
       id: userId,
     },
@@ -84,8 +79,8 @@ const updateUser = (
     },
   });
 
-const deleteUserById = (userId) =>
-  prisma.user.delete({
+export const deleteUserById = (userId) =>
+  dbClient.user.delete({
     where: {
       id: userId,
     },
@@ -94,11 +89,3 @@ const deleteUserById = (userId) =>
     },
   });
 
-module.exports = {
-  findAllUsers,
-  findUserByEmail,
-  findUserById,
-  createUser,
-  updateUser,
-  deleteUserById,
-};

@@ -1,9 +1,4 @@
-const { Prisma } = require('@prisma/client');
-const prisma = require('../utils/prisma');
-const bcrypt = require('bcrypt');
-const jwt = require('jsonwebtoken');
-
-const {
+import {
   findAllPosts,
   createPost,
   findPostsByCategory,
@@ -11,14 +6,14 @@ const {
   editPostContent,
   deletePostById,
   createComment
-} = require('../domain/posts');
+} from '../domain/posts.js'
 
-const {
+import {
   findUserById
-} = require('../domain/users');
+} from '../domain/users.js'
 
 
-const getPosts = async (req, res) => {
+export const getAllPosts = async (req, res) => {
   const { category } = req.query;
 
   try {
@@ -64,7 +59,7 @@ const getPosts = async (req, res) => {
   }
 };
 
-const getPostById = async (req, res) => {
+export const getPostById = async (req, res) => {
   const postId = Number(req.params.id);
 
   if (!postId) {
@@ -95,7 +90,7 @@ const getPostById = async (req, res) => {
   }
 };
 
-const createNewPost = async (req, res) => {
+export const createNewPost = async (req, res) => {
   const { title, content, category } = req.body;
   const userId = req.user.id;
   const username = req.user.username;
@@ -139,7 +134,7 @@ const createNewPost = async (req, res) => {
   }
 };
 
-const editPost = async (req, res) => {
+export const editPost = async (req, res) => {
   const postId = Number(req.params.id);
   const { title, content, category } = req.body;
 
@@ -177,7 +172,7 @@ const editPost = async (req, res) => {
   }
 };
 
-const deletePost = async (req, res) => {
+export const deletePost = async (req, res) => {
   const postId = Number(req.params.id);
 
   if (!postId) {
@@ -210,7 +205,7 @@ const deletePost = async (req, res) => {
   }
 };
 
-const createNewComment = async (req, res) => {
+export const createNewComment = async (req, res) => {
   const postId = Number(req.params.id);
   const userId = req.user.id;
 // TODO: check into parent id getting
@@ -258,12 +253,3 @@ console.log('parentId', parentId);
     });
   }
 }
-
-module.exports = {
-  createNewPost,
-  getPostById,
-  editPost,
-  deletePost,
-  getPosts,
-  createNewComment,
-};

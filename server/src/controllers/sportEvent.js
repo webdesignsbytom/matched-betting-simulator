@@ -3,7 +3,7 @@ const prisma = require('../utils/prisma');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
-const { findAllSportEvents, findEventByType, createNewEvent } = require('../domain/events');
+const { findAllSportEvents, findEventByType, createNewEvent } = require('../domain/sportEvent');
 
 const getAllSportEvents = async (req, res) => {
   console.log('getting all sports');
