@@ -1,16 +1,13 @@
-const { Prisma } = require('@prisma/client');
-const prisma = require('../utils/prisma');
-const bcrypt = require('bcrypt');
-const jwt = require('jsonwebtoken');
+import dbClient from '../utils/dbClient.js';
 
-const findAllLinks = () =>
-  prisma.link.findMany({
+export const findAllLinks = () =>
+  dbClient.link.findMany({
     orderBy: {
       createdAt: 'desc',
     },
   });
 
-const createLink = (
+export const createLink = (
   company,
   betType,
   qualifyingBet,
@@ -19,7 +16,7 @@ const createLink = (
   url,
   endDate,
   desc
-) => prisma.link.create({
+) => dbClient.link.create({
   data: {
     company: company,
     betType: betType,
@@ -31,8 +28,3 @@ const createLink = (
     desc: desc,
   }
 });
-
-module.exports = {
-  findAllLinks,
-  createLink,
-};

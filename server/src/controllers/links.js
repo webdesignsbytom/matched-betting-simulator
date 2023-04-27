@@ -1,8 +1,7 @@
 
+import { findAllLinks, createLink } from '../domain/links.js'
 
-const { findAllLinks, createLink } = require('../domain/links');
-
-const getAllLinks = async (req, res) => {
+export const getAllLinks = async (req, res) => {
   console.log('getAllLinks');
 
   try {
@@ -31,7 +30,7 @@ const getAllLinks = async (req, res) => {
   }
 };
 
-const createNewLink = async (req, res) => {
+export const createNewLink = async (req, res) => {
   console.log('gettingallLinks');
 
   const {
@@ -103,7 +102,3 @@ const createNewLink = async (req, res) => {
   }
 };
 
-module.exports = {
-  getAllLinks,
-  createNewLink,
-};

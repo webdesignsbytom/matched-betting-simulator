@@ -9,6 +9,7 @@ import * as url from 'url';
 import authRouter from './routes/auth.js';
 // import eventRouter from './routes/sportEvent.js';
 import userRouter from './routes/users.js';
+import linkRouter from './routes/links.js'
 import postRouter from './routes/posts.js';
 // Env
 import { HTTP_URL, PORT } from './utils/config.js';
@@ -33,6 +34,7 @@ const __dirname = url.fileURLToPath(new URL('.', import.meta.url));
 // Start of actions
 app.use('/', authRouter);
 app.use('/posts', postRouter)
+app.use('/links', linkRouter)
 // app.use('/events', eventRouter);
 app.use('/users', userRouter);
 

@@ -1,16 +1,13 @@
-const express = require("express");
-const { authorization } = require('../middleware/auth')
+import { Router } from 'express';
 
-const router = express.Router();
-const {
+import {
     getAllLinks,
     createNewLink
+} from '../controllers/links.js'
 
-} = require('../controllers/links');
+const router = Router();
 
 router.get('/', getAllLinks);
 router.post('/', createNewLink);
 
-
-module.exports = router;
-
+export default router;

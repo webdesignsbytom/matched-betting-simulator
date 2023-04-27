@@ -99,6 +99,27 @@ model CommentLike {
   @@unique([userId, commentId])
 }
 
+enum BetTypes {
+  FREEBET
+  SNR
+  SR
+  ACCUM
+}
+
+// Links
+model BookieLink {
+  id              Int       @id @default(autoincrement())
+  bookieName      String
+  url             String    @unique
+  betType         String
+  stakeRequired   Int
+  freeBetAmount   Int
+  potentialProfit Decimal
+  endDate         DateTime?
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime? @updatedAt
+}
+
 // DEVELOPER MODELS
 // EVENTS
 enum EventType {

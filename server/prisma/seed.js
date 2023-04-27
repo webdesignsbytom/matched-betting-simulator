@@ -29,6 +29,17 @@ async function seed() {
     },
   });
 
+  const firstLink = await dbClient.bookieLink.create({
+    data: {
+      bookieName: 'Ladbrokes',
+      url: 'https://promo.ladbrokes.com/en/promo/pm/online-betting/bet-5-get-20?wm=4945004&tdpeh=ladbrokes%20sign%20up%20offer_e_611946981597_c&cat=&type=en&class=&event=&utm_source=search_google&utm_campaign=1374248764&utm_content=611946981597&utm_medium=e_g&utm_term=ladbrokes%20sign%20up%20offer&gclid=CjwKCAjwuqiiBhBtEiwATgvixGR-Q7unlOHNvIzXcmTYrqK2yBZp1NN4ByMzbB5Sq5jSzNhLPMWI-xoCauEQAvD_BwE',
+      betType: 'SNR',
+      stakeRequired: 5,
+      freeBetAmount: 20,
+      potentialProfit: 16.20
+    }
+  })
+
   // EVENTS
   const eventOne = await dbClient.event.create({
     data: {
