@@ -1,7 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import LinkItem from '../../../components/links/LinkItem';
-import '../../forum/style.css'
 
 function StageOne() {
   return (
