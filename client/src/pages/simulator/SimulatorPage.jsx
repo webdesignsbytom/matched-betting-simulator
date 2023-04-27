@@ -3,6 +3,7 @@ import React from 'react';
 import SmallCalculator from '../../components/calculator/SmallCalculator';
 import Navbar from '../../components/nav/Navbar';
 import ApiContainer from '../../components/api/ApiContainer';
+import UserBetArea from '../../components/simulator/UserBetArea';
 
 function SimulatorPage() {
   return (
@@ -13,7 +14,9 @@ function SimulatorPage() {
         <section>
           <article className='text-center px-4 pt-4 pb-1'>
             <h1 className='text-3xl font-semibold mb-1'>Betting Simulator</h1>
-            <h2 className=''>Use real sports in our simulator with our Odds API!</h2>
+            <h2 className=''>
+              Use real sports in our simulator with our Odds API!
+            </h2>
           </article>
         </section>
 
@@ -29,9 +32,12 @@ function SimulatorPage() {
               <SmallCalculator />
             </section>
           </section>
-          {/* BOOKIE SIMULATOR */}
-          <section className='outline outline-2 outline-black rounded p-1 grid '>
-            a
+
+          {/* RIGHT SIMULATOR */}
+          <section className='grid grid-rows-rev outline outline-2 outline-black rounded gap-2 overflow-hidden p-1 bg-yellow-500'>
+            <section className='outline outline-2 outline-black rounded bg-yellow-400'>
+              <UserBetArea />
+            </section>
           </section>
         </section>
       </main>
