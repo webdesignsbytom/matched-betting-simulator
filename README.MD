@@ -18,7 +18,7 @@ Check out the calculator
 
 Contains a specialised calculator that works out the correct amount to bet based on two different sets of odds.
 
-Server deployment with Vercel @ [https://webdesignsbytom-app.vercel.app/](https://webdesignsbytom-app.vercel.app/)
+Server deployment with Vercel @ [Backend](https://matched-betting-tailwind.vercel.app/)
 
 ## Main Feature
 
