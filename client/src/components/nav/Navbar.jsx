@@ -23,7 +23,7 @@ function Navbar() {
   const toggleNavbar = () => {};
 
   return (
-    <header className='flex bg-green-700 justify-between items-center p-2 border-b-4 border-black border-solid w-full'>
+    <header className='flex bg-green-700 justify-between items-center p-4 border-b-4 border-black border-solid w-full'>
       <div className='pl-2'>
         <Link to='/'>
           <img src={Logo} className='w-8 h-8' alt='Matched Betting' />

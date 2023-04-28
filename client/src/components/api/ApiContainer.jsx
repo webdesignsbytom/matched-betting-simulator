@@ -49,7 +49,7 @@ function ApiContainer() {
         <h3>Sports API</h3>
         <h4>Live sports odds!</h4>
       </div>
-      <section className='grid bg-red-500 grid-cols-2 h-full'>
+      <section className='grid bg-red-500 md:grid-cols-2 h-full'>
         <section className='bg-blue-200 grid h-full w-full overflow-hidden'>
           <h6 className='text-center'>Bookie (Various)</h6>
           <section className='grid gap-1 overflow-y-scroll max-h-[320px] w-full'>
@@ -59,7 +59,7 @@ function ApiContainer() {
                 return (
                   <article
                     key={index}
-                    className='bg-green-100 border-b-2 border-solid border-black text-sm'
+                    className='border-b-2 border-solid border-black text-sm'
                   >
                     <div className=''>
                       {/* Home Team */}

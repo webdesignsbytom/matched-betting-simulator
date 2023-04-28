@@ -1,6 +1,6 @@
 import { Route, Routes } from 'react-router-dom';
 // Pages
-import Home from './pages/home/Home';
+import HomePage from './pages/home/HomePage';
 import CalculatorPage from './pages/calculator/CalculatorPage';
 import Lessons from './pages/lessons/Lessons';
 import Forum from './pages/forum/Forum';
@@ -14,7 +14,7 @@ import SimulatorPage from './pages/simulator/SimulatorPage';
 function App() {
   return (
     <Routes>
-      <Route path='/' element={<Home />} index />
+      <Route path='/' element={<HomePage />} index />
       <Route path='/calculator' element={<CalculatorPage />} />
       <Route path='/simulator' element={<SimulatorPage />} />
       <Route path='/lessons' element={<Lessons />} />
