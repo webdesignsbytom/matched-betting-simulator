@@ -7,12 +7,15 @@ Player practice bank accounts for a sandbox betting experience.
 
 This app is deployed at [Matched Betting Simulator](https://clever-rolypoly-136b82.netlify.app/)
 Check out the calculator
+
 ## Table of contents
 
 - [Matched Betting Simulator](#matched-betting-simulator)
   - [Table of contents](#table-of-contents)
   - [General info](#general-info)
   - [Main Features](#main-features)
+    - [Calculator](#calculator)
+    - [API](#api)
   - [Technologies](#technologies)
   - [Run this project locally](#run-this-project-locally)
   - [Design Information](#design-information)
@@ -25,11 +28,15 @@ Server deployment with Vercel @ [Backend](https://matched-betting-tailwind.verce
 
 ## Main Features
 
+### Calculator
+
 The matched betting calculator uses several different formulas to tell you exactly what bets to make
 <img src='./client/src/assets/images/calculatorMd.png'>
 
-API
+### API
+
 <img src='./client/src/assets/images/betting-phone-api.png'>
+
 ## Technologies
 
 App developed with:
