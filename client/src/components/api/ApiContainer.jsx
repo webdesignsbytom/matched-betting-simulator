@@ -52,7 +52,7 @@ function ApiContainer() {
       <section className='grid bg-red-500 md:grid-cols-2 h-full'>
         <section className='bg-blue-200 grid h-full w-full overflow-hidden'>
           <h6 className='text-center'>Bookie (Various)</h6>
-          <section className='grid gap-1 overflow-y-scroll max-h-[320px] w-full'>
+          <section className='grid gap-1 overflow-y-scroll max-h-[300px] w-full'>
             {allFoundOdds.length &&
               allFoundOdds.map((match, index) => {
                 console.log('item found', match);
@@ -127,7 +127,68 @@ function ApiContainer() {
                       </section>
 
                       {/* Away team */}
-                      <section>{match.away_team}</section>
+                      <section className='flex grid-cols-4 w-full mt-2'>
+                        <div className='overflow-hidden w-full pr-4'>
+                          {match.away_team}{' '}
+                        </div>
+                        <div
+                          className='w-full bg-blue-500 h-fit text-center font-semibold hover:bg-blue-400 cursor-pointer'
+                          onClick={() =>
+                            makeBookieBet(
+                              'win',
+                              match,
+                              match.bookmakers[0].markets[0].outcomes.find(
+                                (outcome) => outcome.name === match.away_team
+                              ).price
+                            )
+                          }
+                        >
+                          WIN{' '}
+                          {
+                            match.bookmakers[0].markets[0].outcomes.find(
+                              (outcome) => outcome.name === match.away_team
+                            ).price
+                          }
+                        </div>
+                        <div
+                          className='w-full bg-red-500 h-fit text-center font-semibold hover:bg-red-400 cursor-pointer'
+                          onClick={() =>
+                            makeBookieBet(
+                              'lose',
+                              match,
+                              match.bookmakers[0].markets[0].outcomes.find(
+                                (outcome) => outcome.name === match.home_team
+                              ).price
+                            )
+                          }
+                        >
+                          LOSE{' '}
+                          {
+                            match.bookmakers[0].markets[0].outcomes.find(
+                              (outcome) => outcome.name === match.home_team
+                            ).price
+                          }
+                        </div>
+                        <div
+                          className='w-full bg-yellow-400 h-fit text-center font-semibold hover:bg-yellow-300 cursor-pointer'
+                          onClick={() =>
+                            makeBookieBet(
+                              'draw',
+                              match,
+                              match.bookmakers[0].markets[0].outcomes.find(
+                                (outcome) => outcome.name === 'Draw'
+                              ).price
+                            )
+                          }
+                        >
+                          DRAW{' '}
+                          {
+                            match.bookmakers[0].markets[0].outcomes.find(
+                              (outcome) => outcome.name === 'Draw'
+                            ).price
+                          }
+                        </div>
+                      </section>
                     </div>
                   </article>
                 );
