@@ -21,7 +21,7 @@ model User {
   password         String
   role             Role              @default(USER)
   profile          Profile?
-  SimulatorAccount SimulatorAccount?
+  simulatorAccount SimulatorAccount?
   Post             Post[]
   Comment          Comment[]
   Like             Like[]

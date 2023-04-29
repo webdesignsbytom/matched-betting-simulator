@@ -1,21 +1,13 @@
 export const userSampleData = {
-  id: '',
-  email: '',
-  username: '',
-  role: '',
+  id: "string1",
+  email: "x@x.com",
+  role: "USER",
   posts: [],
+  profile: {
+    username: "tom",
+  },
+  simulatorAccount: {
+    bank: 1000,
+    openBets: [],
+  },
 };
-
-export const sampleProfileData = {
-  username: '',
-  email: '',
-  password: '',
-  firstname: '',
-  lastname: '',
-  biography: '',
-  profileImgUrl: '',
-}
-
-export const profileFormState = [
-  'username', 'email', 'password', 'firstname', 'lastname', 'biography', 'profileImgUrl'
-]

@@ -2,9 +2,6 @@ import React from 'react';
 import { useEffect, useState } from 'react';
 // Data
 import { userSampleData } from '../utils/data/UserData';
-import LoggedInUser from '../utils/LoggedInUser';
-// Fetch
-import client from '../utils/axios/client';
 // Context
 export const UserContext = React.createContext();
 
@@ -17,29 +14,7 @@ const UserContextProvider = ({ children }) => {
   );
   const [toggleCookiePolicy, setToggleCookiePolicy] = useState(false);
 
-  // useEffect(() => {
-  //   const decodedUserData = LoggedInUser();
-
-  //   if (decodedUserData) {
-  //     const userId = decodedUserData.id;
-
-  //     client
-  //       .get(`/users/${userId}`)
-  //       .then((res) => {
-  //         setUser(res.data.data.user);
-  //       })
-  //       .catch((err) => {
-  //         console.error('Unable to retrieve user data', err);
-  //       });
-  //   }
-
-  //   const cookie = localStorage.getItem('CookiePolicy');
-
-  //   if (cookie) {
-  //     setToggleCookiePolicy(true);
-  //   }
-  // }, []);
-
+  console.log('user', user);
   return (
     <UserContext.Provider
       value={{
