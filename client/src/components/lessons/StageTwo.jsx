@@ -39,10 +39,10 @@ function StageTwo() {
   };
 
   return (
-    <section>
-      <article className="p-2 pb-10 border-b-2 border-yellow-400 border-solid">
+    <section className="outline outline-4 outline-black rounded grid bg-[#008080] my-4">
+      <article className="p-2 pb-10">
         <div className="grid grid-flow-col gap-4 w-fit mb-2">
-          <h3 className="font-semibold">Stage One: </h3>
+          <h3 className="font-semibold">Stage Two: </h3>
           <h4>Join the bookie</h4>
         </div>
 
@@ -60,14 +60,16 @@ function StageTwo() {
               target="_blank"
               rel="noreferrer"
             >
-              <span>williamhill.com</span>
+              <span className="text-yellow-400 font-semibold">
+                williamhill.com
+              </span>
             </a>{" "}
             which always has a decent offer and easy to understand terms and
             conditions.
           </p>
         </div>
 
-        <section className='grid md:grid-cols-2'>
+        <section className="grid md:grid-cols-2">
           <article>
             <h6>OFFER</h6>
             <p>Welcome to William Hill</p>
@@ -78,8 +80,15 @@ function StageTwo() {
             <h6>WHAT TO NOTE</h6>
             <p>We must deposit and bet £10 from our bank and bet it.</p>
             <p>Its always best to stick to football and horse racing.</p>
-            <p>After we have bet £10 (and the game has finished and been called) you will get 3x £10 free bets. That can be found on your bet slip when you come to place a bet.</p>
-            <p>Always check the T&C's for a min and max bet on your free and qaulifying bet.</p>
+            <p>
+              After we have bet £10 (and the game has finished and been called)
+              you will get 3x £10 free bets. That can be found on your bet slip
+              when you come to place a bet.
+            </p>
+            <p>
+              Always check the T&C's for a min and max bet on your free and
+              qaulifying bet.
+            </p>
             <p>Always find your odds in decimal form</p>
             <p>Observe how we track your funds across all accounts</p>
           </article>
@@ -93,7 +102,7 @@ function StageTwo() {
               id="bookieDeposit"
               className="max-w-[150px p-1"
               onChange={handleBookieChange}
-              placeholder='£10'
+              placeholder="£10"
             />
             <div>
               <button

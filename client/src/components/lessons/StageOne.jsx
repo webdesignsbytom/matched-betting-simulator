@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 
 function StageOne() {
   return (
-    <section>
-      <article className="p-2 pb-10 border-b-2 border-yellow-400 border-solid">
+    <section className='outline outline-4 outline-black rounded grid bg-[#008080] my-4'>
+      <article className="p-2 border-solid">
         <div className="grid grid-flow-col gap-4 w-fit mb-2">
           <h3 className="font-semibold">Stage One: </h3>
           <h4>Find A Free Bet Offer</h4>

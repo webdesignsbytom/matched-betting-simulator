@@ -6,9 +6,10 @@ import GameContainer from "../../components/lessons/GameContainer";
 import NextStageButton from '../../components/lessons/NextStageButton';
 // Context
 import { GameContext } from '../../context/GameContext';
+import ResetAndSave from '../../components/lessons/ResetAndSave';
 
 function LessonsPage() {
- const { togglePlaying, isPlaying } = useContext(GameContext)
+ const { togglePlaying, isPlaying, currentStage } = useContext(GameContext)
 
   return (
     <div className="min-h-screen grid grid-rows-reg bg-yellow-400">
@@ -29,7 +30,8 @@ function LessonsPage() {
         </section>
 
         <div className='px-6 my-6'>
-          <main className="outline outline-4 outline-black rounded grid bg-[#008080]">
+          {/* <main className="outline outline-4 outline-black rounded grid bg-[#008080]"> */}
+          <main className="grid">
             {isPlaying ? (
               <GameContainer />
             ) : (
@@ -39,7 +41,8 @@ function LessonsPage() {
             )}
           </main>
 
-          {isPlaying && <NextStageButton />}
+          {(isPlaying && currentStage.stageEightOn === true) && <ResetAndSave />}
+          {(isPlaying && currentStage.stageEightOn === false) && <NextStageButton />}
         </div>
       </section>
     </div>

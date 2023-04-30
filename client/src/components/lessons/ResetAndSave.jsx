@@ -1,10 +1,9 @@
 import React, { useContext } from "react";
 import { GameContext } from "../../context/GameContext";
 
-function NextStageButton() {
+function ResetAndSave() {
   const { startNextStage } = useContext(GameContext);
   
-
   return (
     <article className="my-4 grid justify-center">
       <div>
@@ -12,11 +11,11 @@ function NextStageButton() {
           onClick={startNextStage}
           className="outline outline-2 outline-black rounded p-2 bg-orange-400"
         >
-          <span className="font-bold">NEXT STAGE</span>
+          <span className="font-bold">RESET</span>
         </button>
       </div>
     </article>
   );
 }
 
-export default NextStageButton;
+export default ResetAndSave

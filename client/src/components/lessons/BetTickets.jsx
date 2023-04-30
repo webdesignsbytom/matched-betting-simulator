@@ -1,5 +1,5 @@
-import React, { useContext } from 'react';
-import { GameContext } from '../../context/GameContext';
+import React, { useContext } from "react";
+import { GameContext } from "../../context/GameContext";
 
 function BetTickets() {
   const {
@@ -26,16 +26,21 @@ function BetTickets() {
   } = useContext(GameContext);
 
   return (
-    <div className='stage__container'>
-      <div className='inplay__bets__container'></div>
-      Current Bets - total cash on the table = {totalInPlayBank}
-      <div className='bookie__inplay__bets'>
-        <h3>Bookie</h3>
-      </div>
-      <div className='exchange__inplay__bets'>
-        <h3>Exchange</h3>
-      </div>
-    </div>
+    <section className="outline outline-4 outline-black rounded grid bg-[#008080] my-4">
+      <article className="p-2 pb-10">
+        <div>
+          <h6 className='font-semibold'>Current Bets: (total cash on the table) = £{totalInPlayBank}</h6>
+        </div>
+        <section className='grid grid-flow-col outline outline-2 outline-black rounded p-2 my-2'>
+          <div className="">
+            <h3>Bookie</h3>
+          </div>
+          <div className="">
+            <h3>Exchange</h3>
+          </div>
+        </section>
+      </article>
+    </section>
   );
 }
 
