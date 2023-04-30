@@ -107,7 +107,7 @@ function Calculator() {
   };
 
   return (
-    <section className="grid bg-[#008080] w-full">
+    <section className="grid bg-[#008080] w-full lg:h-fit">
       <main className="grid">
         <section className="">
           <BetTypeSelector
@@ -253,8 +253,8 @@ function Calculator() {
           ]
         */}
 
-        <section className="pt-4 md:pl-4 grid bg-red-300">
-          <section className='w-full'>
+        <section className="pt-4 grid ">
+          <section className='w-full md:pl-4 bg-red-300'>
             <table className="">
               <thead>
                 <tr className="">
@@ -310,8 +310,8 @@ function Calculator() {
           </section>
 
           {/* Explained more */}
-          <section className='bg-yellow-400'>
-            <p className='text-sm'>
+          <section className='bg-yellow-400 px-2'>
+            <p className='text-sm text-center'>
               Remember the qualifying bet will lose a small amount due to the
               exchange commision. However you will make this back on the free
               bet. Just remember to calculate the correct overall winnings.
