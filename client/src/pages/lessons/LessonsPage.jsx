@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import Navbar from "../../components/nav/Navbar";
 import HowToPlay from "../../components/lessons/HowToPlay";
 import GameContainer from "../../components/lessons/GameContainer";
+import NextStageButton from '../../components/lessons/NextStageButton';
 
 function LessonsPage() {
   const [isPlaying, setIsPlaying] = useState(false);
@@ -39,6 +40,8 @@ function LessonsPage() {
               </section>
             )}
           </main>
+
+          {isPlaying && <NextStageButton />}
         </div>
       </section>
     </div>

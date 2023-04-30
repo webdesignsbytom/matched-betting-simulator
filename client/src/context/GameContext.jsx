@@ -1,10 +1,10 @@
-import React from 'react';
-import { useState } from 'react';
+import React from "react";
+import { useState } from "react";
 
 import {
   sampleBookieBetTicket,
   sampleExchangeBetTicket,
-} from '../utils/data/BetData';
+} from "../utils/data/BetData";
 
 export const GameContext = React.createContext();
 
@@ -29,20 +29,27 @@ const GameContextProvider = ({ children }) => {
     sampleExchangeBetTicket
   );
   // game
-  const [stage, setStage] = useState({
-    stageOneOn: true,
-    stageTwoOn: true,
-    stageThreeOn: true,
-    stageFourOn: true,
-    stageFiveOn: true,
-    stageSixOn: true,
-    stageSevenOn: true,
-    stageEightOn: true,
+  const [currentStage, setCurrentStage] = useState({
+    stageOneOn: false,
+    stageTwoOn: false,
+    stageThreeOn: false,
+    stageFourOn: false,
+    stageFiveOn: false,
+    stageSixOn: false,
+    stageSevenOn: false,
+    stageEightOn: false,
   });
+
+  const startNextStage = () => {
+    console.log('starting next stage');
+  }
 
   return (
     <GameContext.Provider
       value={{
+        // Functions
+        startNextStage,
+        // States
         playerBank,
         setPlayerBank,
         betFairBank,
@@ -51,8 +58,8 @@ const GameContextProvider = ({ children }) => {
         setBookieBetzBank,
         betHistory,
         setBetHistory,
-        stage,
-        setStage,
+        currentStage,
+        setCurrentStage,
         bankToggle,
         setBankToggle,
         bookieDepositData,

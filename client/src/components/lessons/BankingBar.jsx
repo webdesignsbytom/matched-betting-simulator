@@ -25,7 +25,7 @@ function BankingBar() {
   console.log("playerBank", playerBank);
 
   return (
-    <section className="grid md:grid-cols-4 bg-white p-2">
+    <section className="grid md:grid-cols-4 bg-white p-2 border-b-2 border-yellow-400 border-solid">
       <section className="">
         <h3>Player Bank £{playerBank}</h3>
       </section>
