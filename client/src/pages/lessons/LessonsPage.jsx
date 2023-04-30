@@ -1,16 +1,14 @@
-import React, { useState } from "react";
+import React, { useContext } from "react";
 // Components
 import Navbar from "../../components/nav/Navbar";
 import HowToPlay from "../../components/lessons/HowToPlay";
 import GameContainer from "../../components/lessons/GameContainer";
 import NextStageButton from '../../components/lessons/NextStageButton';
+// Context
+import { GameContext } from '../../context/GameContext';
 
 function LessonsPage() {
-  const [isPlaying, setIsPlaying] = useState(false);
-
-  const togglePlaying = () => {
-    setIsPlaying(!isPlaying);
-  };
+ const { togglePlaying, isPlaying } = useContext(GameContext)
 
   return (
     <div className="min-h-screen grid grid-rows-reg bg-yellow-400">

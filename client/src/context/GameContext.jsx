@@ -9,6 +9,7 @@ import {
 export const GameContext = React.createContext();
 
 const GameContextProvider = ({ children }) => {
+  const [isPlaying, setIsPlaying] = useState(false);
   // player
   const [playerBank, setPlayerBank] = useState(1000);
   const [betHistory, setBetHistory] = useState([]);
@@ -41,13 +42,40 @@ const GameContextProvider = ({ children }) => {
   });
 
   const startNextStage = () => {
-    console.log('starting next stage');
-  }
+    console.log("starting next stage");
+
+    // Find first stage that === false
+    const findFalse = () => {
+      for (const [key, value] of Object.entries(currentStage)) {
+        console.log(`${key}: ${value}`);
+        if (value === false) return key
+      }
+    };
+
+    let result = findFalse();
+    console.log('result found', result);
+
+    setCurrentStage({
+      ...currentStage,
+      [result]: true
+    })
+  };
+
+  const togglePlaying = () => {
+    setIsPlaying(!isPlaying);
+    setCurrentStage({
+      ...currentStage,
+      stageOneOn: true,
+    });
+  };
+
+  console.log("CUREENT STAGE: ", currentStage);
 
   return (
     <GameContext.Provider
       value={{
         // Functions
+        togglePlaying,
         startNextStage,
         // States
         playerBank,
@@ -58,6 +86,7 @@ const GameContextProvider = ({ children }) => {
         setBookieBetzBank,
         betHistory,
         setBetHistory,
+        isPlaying,
         currentStage,
         setCurrentStage,
         bankToggle,
