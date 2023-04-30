@@ -33,12 +33,16 @@ model User {
 }
 
 model Profile {
-  id        String    @id @default(uuid())
-  username  String    @unique
-  userId    String    @unique
-  user      User      @relation(fields: [userId], references: [id], onDelete: Cascade)
-  createdAt DateTime  @default(now())
-  updatedAt DateTime? @updatedAt
+  id            String    @id @default(uuid())
+  username      String    @unique
+  userId        String    @unique
+  firstName     String?
+  lastName      String?
+  biography     String?
+  profileImgUrl String    @default("https://t3.ftcdn.net/jpg/02/95/94/94/360_F_295949484_8BrlWkTrPXTYzgMn3UebDl1O13PcVNMU.jpg")
+  user          User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime? @updatedAt
 }
 
 model SimulatorAccount {
@@ -51,11 +55,20 @@ model SimulatorAccount {
   userId    String    @unique
 }
 
+enum Category {
+  GENERAL
+  EVENTS
+  NEWBIES
+}
+
 model Post {
   id        Int       @id @default(autoincrement())
+  title     String
   content   String
-  user      User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  ownerName String
+  category  Category
   userId    String
+  user      User      @relation(fields: [userId], references: [id], onDelete: Cascade)
   likes     Like[]
   comments  Comment[]
   isPrivate Boolean   @default(false)
@@ -113,11 +126,23 @@ model BookieLink {
   url             String    @unique
   betType         String
   stakeRequired   Int
+  minBet          Int
   freeBetAmount   Int
   potentialProfit Decimal
+  desc            String?
   endDate         DateTime?
   createdAt       DateTime  @default(now())
   updatedAt       DateTime? @updatedAt
+}
+
+model SportEvent {
+  id          Int       @id @default(autoincrement())
+  title       String    @unique
+  sportType   String
+  betTypes    String[]
+  competitors String[]
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime? @updatedAt
 }
 
 // DEVELOPER MODELS
