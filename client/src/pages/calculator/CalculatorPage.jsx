@@ -7,15 +7,14 @@ import CalculationsExplained from '../../components/calculator/CalculationsExpla
 
 function CalculatorPage() {
   return (
-    <div className='bg-yellow-400 dark:bg-black grid grid-rows-reg min-h-screen'>
+    <div className='bg-yellow-400 dark:bg-black grid grid-rows-reg min-h-screen lg:max-h-screen lg:overflow-hidden'>
       <Navbar />
-
-      <section className='grid grid-rows-rev p-4 gap-2'>
+      <section className='grid p-4 gap-2'>
         {/* Calculator */}
-        <main className='grid lg:grid-flow-col gap-2'>
-          <section className='grid outline outline-2 outline-black rounded'>
+        <main className='grid lg:grid-cols-2 gap-2'>
+          <section className='grid grid-rows-rev outline outline-2 outline-black rounded'>
             <Calculator />
-            <section className='p-4 text-xl bg-[#ffa500] outline outline-2 outline-black rounded'>
+            <section className='p-4 mt-6 md:mt-0 bg-[#ffa500] outline outline-2 outline-black rounded'>
               <article>
                 Learn to use the calculator in the{' '}
                 <Link to='/simulator'>
