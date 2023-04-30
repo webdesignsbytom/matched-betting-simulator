@@ -2,7 +2,7 @@ import { Route, Routes } from 'react-router-dom';
 // Pages
 import HomePage from './pages/home/HomePage';
 import CalculatorPage from './pages/calculator/CalculatorPage';
-import Lessons from './pages/lessons/Lessons';
+import LessonsPage from './pages/lessons/LessonsPage';
 import ForumPage from './pages/forum/ForumPage';
 import Links from './pages/links/Links';
 import Account from './pages/account/Account';
@@ -17,7 +17,7 @@ function App() {
       <Route path='/' element={<HomePage />} index />
       <Route path='/calculator' element={<CalculatorPage />} />
       <Route path='/simulator' element={<SimulatorPage />} />
-      <Route path='/lessons' element={<Lessons />} />
+      <Route path='/lessons' element={<LessonsPage />} />
 
       <Route path='/forum' element={<ForumPage />} />
       <Route path='/links' element={<Links />} />

@@ -1,25 +1,22 @@
-import React, { useContext } from 'react';
-import './style.css';
-
-import { GameContext } from '../../../../context/GameContext';
-import { useState } from 'react';
-
+import React, { useContext, useState } from "react";
+// Context
+import { GameContext } from "../../../context/GameContext";
+// Random events
 import {
   footballGenerator,
   horseRaceGenerator,
-} from '../../components/EventGenerator';
-import FootballItem from '../../components/FootballItem';
-import RacingItem from '../../components/RacingItem';
+} from "../../../components/lessons/EventGenerator";
+// Components
+import FootballItem from '../../../components/lessons/FootballItem'
+import RacingItem from '../../../components/lessons/RacingItem'
 
-function BookieBetz() {
+
+function BetFair() {
   const newFootballEvents = footballGenerator;
   const newRaceEvents = horseRaceGenerator;
-  console.log('newFootballEvents', newFootballEvents);
-  console.log('newRaceEvents', newRaceEvents);
   const [sportSelected, setSportSelected] = useState(false);
   const [footballSelected, setFootballSelected] = useState(false);
   const [racingSelected, setRacingSelected] = useState(false);
-
   const {
     stage,
     betFairBank,
@@ -41,13 +38,11 @@ function BookieBetz() {
   } = useContext(GameContext);
 
   const findFootball = () => {
-    console.log('footballSelected');
     setSportSelected(true);
     setFootballSelected(true);
   };
 
   const findRacing = () => {
-    console.log('footballSelected');
     setSportSelected(true);
     setRacingSelected(true);
   };
@@ -57,16 +52,15 @@ function BookieBetz() {
     setRacingSelected(false);
     setFootballSelected(false);
   };
-
   return (
-    <section id='bookie__container'>
-      <div className='bookie__header'>
-        <h2>BookieBetz</h2>
-        <span>In Account £{bookieBetzBank}</span>
+    <section id="exchange__container">
+      <div className="exchange__header">
+        <h2>BetFair</h2>
+        <span>In Account £{betFairBank}</span>
       </div>
 
       {!sportSelected && (
-        <div className='bookie__sports__selection'>
+        <div className="bookie__sports__selection">
           <h3 onClick={findFootball}>FootBall</h3>
           <h3 onClick={findRacing}>Horse Racing</h3>
         </div>
@@ -76,7 +70,7 @@ function BookieBetz() {
         <div>
           <h3>FootBall</h3>
 
-          <div className='sporting__event__container'>
+          <div className="sporting__event__container">
             <div>
               <ul>
                 {newFootballEvents.map((event, index) => {
@@ -93,7 +87,7 @@ function BookieBetz() {
       {racingSelected && (
         <div>
           <h3>Horse Racing</h3>
-          <div className='sporting__event__container'>
+          <div className="sporting__event__container">
             <div>
               <ul>
                 {newRaceEvents.map((event, index) => {
@@ -108,5 +102,4 @@ function BookieBetz() {
     </section>
   );
 }
-
-export default BookieBetz;
+export default BetFair;

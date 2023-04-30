@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
-import { GameContext } from '../../../context/GameContext';
+// Context
+import { GameContext } from '../../context/GameContext';
 
 function FootballItem({ event, index }) {
   const {

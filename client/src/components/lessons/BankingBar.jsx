@@ -1,7 +1,8 @@
-import React, { useContext } from 'react';
-import { GameContext } from '../../../context/GameContext';
+import React, { useContext } from "react";
+// Context
+import { GameContext } from "../../context/GameContext";
 
-function BankingBar({ bank }) {
+function BankingBar() {
   const {
     playerBank,
     setPlayerBank,
@@ -18,26 +19,26 @@ function BankingBar({ bank }) {
     exchangeDepositData,
     setExchangeDepositData,
     totalInPlayBank,
-setTotalInPlayBank
+    setTotalInPlayBank,
   } = useContext(GameContext);
 
-  console.log('playerBank', playerBank);
+  console.log("playerBank", playerBank);
 
   return (
-    <section className='banking__container'>
-      <section className='player__bank__container bank__container'>
+    <section className="grid md:grid-cols-4 bg-white p-2">
+      <section className="">
         <h3>Player Bank £{playerBank}</h3>
       </section>
-      <section className='bookieBetz__bank__container bank__container'>
+      <section className="">
         <h3>BookieBetz Bank £{bookieBetzBank}</h3>
       </section>
 
-      <section className='betFair__bank__container bank__container'>
+      <section className="">
         <h3>BetFair (ex) Bank £{betFairBank}</h3>
       </section>
 
-      <section className='tickets__bank__container bank__container'>
-        <h3>Tickets £{totalInPlayBank}</h3>
+      <section className="">
+        <h3>Inplay Money £{totalInPlayBank}</h3>
       </section>
     </section>
   );

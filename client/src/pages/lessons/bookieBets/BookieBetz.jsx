@@ -1,20 +1,26 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import './style.css';
 
-import { GameContext } from '../../../../context/GameContext';
+import { GameContext } from '../../../context/GameContext';
+import { useState } from 'react';
+
 import {
   footballGenerator,
   horseRaceGenerator,
-} from '../../components/EventGenerator';
-import FootballItem from '../../components/FootballExchangeItem';
-import RacingItem from '../../components/RacingExchangeItem';
+} from '../../../components/lessons/EventGenerator';
 
-function BetFair() {
+import FootballItem from '../../../components/lessons/FootballItem';
+import RacingItem from '../../../components/lessons/RacingItem';
+
+function BookieBetz() {
   const newFootballEvents = footballGenerator;
   const newRaceEvents = horseRaceGenerator;
+
+
   const [sportSelected, setSportSelected] = useState(false);
   const [footballSelected, setFootballSelected] = useState(false);
   const [racingSelected, setRacingSelected] = useState(false);
+
   const {
     stage,
     betFairBank,
@@ -36,11 +42,13 @@ function BetFair() {
   } = useContext(GameContext);
 
   const findFootball = () => {
+    console.log('footballSelected');
     setSportSelected(true);
     setFootballSelected(true);
   };
 
   const findRacing = () => {
+    console.log('footballSelected');
     setSportSelected(true);
     setRacingSelected(true);
   };
@@ -50,11 +58,12 @@ function BetFair() {
     setRacingSelected(false);
     setFootballSelected(false);
   };
+
   return (
-    <section id='exchange__container'>
-      <div className='exchange__header'>
-        <h2>BetFair</h2>
-        <span>In Account £{betFairBank}</span>
+    <section id='bookie__container'>
+      <div className='bookie__header'>
+        <h2>BookieBetz</h2>
+        <span>In Account £{bookieBetzBank}</span>
       </div>
 
       {!sportSelected && (
@@ -100,4 +109,5 @@ function BetFair() {
     </section>
   );
 }
-export default BetFair;
+
+export default BookieBetz;

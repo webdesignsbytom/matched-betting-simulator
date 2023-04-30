@@ -1,6 +1,7 @@
 import React from 'react';
-import BetFair from '../pages/betfair/BetFair';
-import BookieBetz from '../pages/bookieBets/BookieBetz';
+// Pages
+import BetFair from '../../pages/lessons/betfair/BetFair';
+import BookieBetz from '../../pages/lessons/bookieBets/BookieBetz';
 
 function Events() {
   return (
