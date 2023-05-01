@@ -14,6 +14,7 @@ export const findUserByEmail = (email) =>
     },
     include: {
       profile: true,
+      simulatorAccount: true
     },
   });
 
@@ -24,6 +25,7 @@ export const findUserById = (userId) =>
     },
     include: {
       profile: true,
+      simulatorAccount: true
     },
   });
 
@@ -33,12 +35,18 @@ export const createUser = (email, password) =>
       email: email,
       password: password,
       profile: {
-        create: {},
+        create: {
+          username: email
+        }
       },
+      simulatorAccount: {
+        create: {}
+      }
     },
     include: {
       profile: true,
-    },
+      simulatorAccount: true
+    }
   });
 
 export const updateUser = (

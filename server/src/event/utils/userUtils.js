@@ -4,18 +4,35 @@ import { myEmitterErrors } from '../errorEvents.js';
 import { CreateEventError } from './errorUtils.js';
 
 export const createGetAllEvent = async (user) => {
+// TODO: Replace test ids and add createBy to event
   try {
     await dbClient.event.create({
       data: {
         type: 'ADMIN',
         topic: 'Get all users',
-        content: `Success getting all users for ${user.email}`,
-        createdById: user.id,
+        content: `Success getting all users for test@example.com`,
         code: 200
       },
     });
   } catch (err) {
-    const error = new CreateEventError(user.id, 'Get all users');
+    const error = new CreateEventError('test id', 'Get all users');
+    myEmitterErrors.emit('error', error);
+    throw err;
+  }
+};
+
+export const createGetUserEvent = async (user) => {
+  try {
+    await dbClient.event.create({
+      data: {
+        type: 'USER',
+        topic: 'Get user event',
+        content: `Success getting user for test@example.com`,
+        code: 200
+      },
+    });
+  } catch (err) {
+    const error = new CreateEventError('test id', 'Get users');
     myEmitterErrors.emit('error', error);
     throw err;
   }

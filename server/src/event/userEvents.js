@@ -6,12 +6,15 @@ import {
   createNewVerifyEvent,
   createPasswordResetEvent,
   createDeleteUserEvent,
-  createUpdateUserEvent
+  createUpdateUserEvent,
+  createGetUserEvent
 } from './utils/userUtils.js';
 
 export const myEmitterUsers = myEmitter;
 
 myEmitterUsers.on('get-all-users', async (user) => createGetAllEvent(user));
+
+myEmitterUsers.on('get-user', async (user) => createGetUserEvent(user));
 
 myEmitterUsers.on('register', async (user) => {
   createRegisterEvent(user);

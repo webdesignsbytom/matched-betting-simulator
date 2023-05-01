@@ -3,6 +3,7 @@ import {
   getAllUsers,
   getUserById,
   deleteUser,
+  createNewUser,
 
 } from '../controllers/users.js';
 import {
@@ -14,6 +15,7 @@ const router = Router();
 
 router.get('/', getAllUsers);
 router.get('/:id', getUserById);
+router.post('/register', createNewUser)
 router.delete('/delete-user/:userId', deleteUser);
 
 export default router;

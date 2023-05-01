@@ -7,6 +7,18 @@ import {
   updateUser,
   deleteUserById,
 } from '../domain/users.js';
+import {
+  EVENT_MESSAGES,
+  sendDataResponse,
+  sendMessageResponse,
+} from '../utils/responses.js';
+import {
+  BadRequestEvent,
+  CreateEventError,
+  MissingFieldEvent,
+} from '../event/utils/errorUtils.js';
+import { myEmitterErrors } from '../event/errorEvents.js';
+import { myEmitterUsers } from '../event/userEvents.js';
 
 const hashRate = 8;
 
@@ -42,36 +54,45 @@ export const createNewUser = async (req, res) => {
 
   try {
     if (!lowercaseEmail || !password) {
-      return res
-        .status(404)
-        .json({ error: 'Missing fields in body', code: `404` });
+      //
+      const missingField = new MissingFieldEvent(
+        null,
+        'Registration: Missing Field/s event'
+      );
+      myEmitterErrors.emit('error', missingField);
+      return sendMessageResponse(res, missingField.code, missingField.message);
     }
 
     const foundUser = await findUserByEmail(lowercaseEmail);
 
     if (foundUser) {
-      return res
-        .status(409)
-        .json({ error: `User already exists`, code: `409` });
+      return sendDataResponse(res, 400, { email: EVENT_MESSAGES.emailInUse });
     }
 
     const hashedPassword = await bcrypt.hash(password, hashRate);
 
-    const newUser = await createUser(lowercaseEmail, hashedPassword);
+    const createdUser = await createUser(lowercaseEmail, hashedPassword);
 
-    return res.status(201).json({
-      message: `User ${newUser.email} created`,
-      code: `201`,
-      data: newUser,
-    });
+    if (!createdUser) {
+      const notCreated = new BadRequestEvent(
+        'visitor',
+        EVENT_MESSAGES.badRequest,
+        EVENT_MESSAGES.createUserFail
+      );
+      myEmitterErrors.emit('error', notCreated);
+      return sendMessageResponse(res, notCreated.code, notCreated.message);
+    }
+
+    delete createdUser.password;
+
+    myEmitterUsers.emit('register', createdUser);
+    return sendDataResponse(res, 201, { user: createdUser });
     //
-  } catch (error) {
+  } catch (err) {
     //
-    return res.status(500).json({
-      error: error.message,
-      message: `Internal server error`,
-      code: `500`,
-    });
+    const error = new CreateEventError('visitor', 'register user');
+    myEmitterErrors.emit('error', error);
+    throw err;
   }
 };
 
@@ -197,4 +218,3 @@ export const getUserById = async (req, res) => {
     });
   }
 };
-
