@@ -47,7 +47,7 @@ model Profile {
 
 model SimulatorAccount {
   id        Int       @id @default(autoincrement())
-  bank      Decimal   @default(1000)
+  bank      Decimal   @default(5000)
   openBets  String[]
   createdAt DateTime  @default(now())
   updatedAt DateTime? @updatedAt

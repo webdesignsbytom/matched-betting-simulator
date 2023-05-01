@@ -13,6 +13,9 @@ async function seed() {
           username: `xtombrock`,
         },
       },
+      simulatorAccount: {
+        create: {}
+      }
     },
   });
 
@@ -26,6 +29,9 @@ async function seed() {
           username: `deve`,
         },
       },
+      simulatorAccount: {
+        create: {}
+      }
     },
   });
 
@@ -33,6 +39,9 @@ async function seed() {
     data: {
       email: 'maxpower@email.com',
       password,
+      simulatorAccount: {
+        create: {}
+      }
     },
   });
 

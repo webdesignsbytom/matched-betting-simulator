@@ -1,32 +1,33 @@
 
 import { findAllLinks, createLink } from '../domain/links.js'
+import { myEmitterErrors } from '../event/errorEvents.js';
+import { NotFoundEvent, ServerErrorEvent } from '../event/utils/errorUtils.js';
+import { EVENT_MESSAGES, sendMessageResponse } from '../utils/responses.js';
 
 export const getAllLinks = async (req, res) => {
   console.log('getAllLinks');
 
   try {
-    const allLinks = await findAllLinks();
-    console.log('allLinks', allLinks);
+    const foundLink = await findAllLinks();
 
-    if (!allLinks) {
-      return res
-        .status(404)
-        .json({ error: error.message, message: `No links found` });
+    if (!foundLink) {
+      const notFound = new NotFoundEvent(
+        'visitor',
+        EVENT_MESSAGES.notFound,
+        EVENT_MESSAGES.linkNotFound
+      );
+      myEmitterErrors.emit('error', notFound);
+      return sendMessageResponse(res, notFound.code, notFound.message);
     }
-    //
-    return res.status(201).json({
-      message: `Found ${allLinks.length} links`,
-      code: `201`,
-      data: allLinks,
-    });
-    //
-  } catch (error) {
-    //
-    return res.status(500).json({
-      message: `Internal server error`,
-      code: `500`,
-      error: error.message,
-    });
+
+    // myEmitterUsers.emit('get-all-sport-events', req.user);
+    return sendDataResponse(res, 200, { allLinks: foundLink });
+  } catch (err) {
+    // Error
+    const serverError = new ServerErrorEvent(req.user, `Get all links`);
+    myEmitterErrors.emit('error', serverError);
+    sendMessageResponse(res, serverError.code, serverError.message);
+    throw err;
   }
 };
 

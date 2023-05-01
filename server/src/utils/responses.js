@@ -28,6 +28,12 @@ export const EVENT_MESSAGES = {
   eventTag: `Event database`,
   eventNotFound: `Failed to find event`,
   createEventFail: `Failed to create event`,
+  // Links
+  linkTag: `Link database`,
+  linkNotFound: `Failed to find link/s`,
+  userLinksNotFound: `Failed to find user links`,
+  createLinkFail: `Failed to create link`,
+  markLinkViewedFailed: `Failed to mark link as viewed`,
   // Messages
   messageTag: `Message database`,
   messageNotFound: `Failed to find message/s`,
@@ -46,6 +52,12 @@ export const EVENT_MESSAGES = {
   userReviewsNotFound: `Failed to find user reviews`,
   createReviewFail: `Failed to create review`,
   markReviewViewedFailed: `Failed to mark review as viewed`,
+  // Sports
+  sportEventsTag: `SportEvent database`,
+  notFoundSportEvent: `Failed to find sportEvent/s`,
+  userSportEventsNotFound: `Failed to find user sportEvents`,
+  createSportEventFail: `Failed to create sportEvent`,
+  markSportEventViewedFailed: `Failed to mark sportEvent as viewed`,
   // Users
   userTag: `User databased`,
   userNotFound: `Failed to find user/s`,

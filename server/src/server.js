@@ -7,7 +7,7 @@ import { join } from 'path';
 import * as url from 'url';
 // Import routers
 import authRouter from './routes/auth.js';
-// import eventRouter from './routes/sportEvent.js';
+import eventRouter from './routes/sportEvents.js';
 import userRouter from './routes/users.js';
 import linkRouter from './routes/links.js'
 import postRouter from './routes/posts.js';
@@ -35,7 +35,7 @@ const __dirname = url.fileURLToPath(new URL('.', import.meta.url));
 app.use('/', authRouter);
 app.use('/posts', postRouter)
 app.use('/links', linkRouter)
-// app.use('/events', eventRouter);
+app.use('/sport-events', eventRouter);
 app.use('/users', userRouter);
 
 // Server interface page

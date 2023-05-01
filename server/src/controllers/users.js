@@ -16,6 +16,8 @@ import {
   BadRequestEvent,
   CreateEventError,
   MissingFieldEvent,
+  NotFoundEvent,
+  ServerErrorEvent,
 } from '../event/utils/errorUtils.js';
 import { myEmitterErrors } from '../event/errorEvents.js';
 import { myEmitterUsers } from '../event/userEvents.js';
@@ -23,28 +25,29 @@ import { myEmitterUsers } from '../event/userEvents.js';
 const hashRate = 8;
 
 export const getAllUsers = async (req, res) => {
-  console.log('user', req.user);
-  try {
-    //
-    const foundUsers = await findAllUsers();
+  console.log('getAllUsers');
 
+  try {
+    const foundUsers = await findAllUsers();
+    
     if (!foundUsers) {
-      return res.status(404).json({ message: `No users found`, code: `404` });
+      const notFound = new NotFoundEvent(
+        req.user,
+        EVENT_MESSAGES.notFound,
+        EVENT_MESSAGES.userNotFound
+      );
+      myEmitterErrors.emit('error', notFound);
+      return sendMessageResponse(res, notFound.code, notFound.message);
     }
 
-    return res.status(201).json({
-      message: `Found ${foundUsers.length} users`,
-      code: `201`,
-      data: foundUsers,
-    });
-    //
-  } catch (error) {
-    //
-    return res.status(500).json({
-      error: error.message,
-      message: `Internal server error`,
-      code: `500`,
-    });
+    // myEmitterUsers.emit('get-all-users', req.user);
+    return sendDataResponse(res, 200, { users: foundUsers });
+  } catch (err) {
+    // Error
+    const serverError = new ServerErrorEvent(req.user, `Get all users`);
+    myEmitterErrors.emit('error', serverError);
+    sendMessageResponse(res, serverError.code, serverError.message);
+    throw err;
   }
 };
 
