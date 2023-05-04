@@ -232,13 +232,13 @@ function Calculator() {
               <div className="">
                 <h3>
                   Set your lay stake to:{" "}
-                  <span className="bg-white px-6">£{layStake}</span>
+                  <span className="bg-white px-6">£{layStake.toFixed(2)}</span>
                 </h3>
               </div>
               <div>
                 <p>
                   Your liability will be{" "}
-                  <span className="bg-white px-6">£{liability}</span>
+                  <span className="bg-white px-6">£{liability.toFixed(2)}</span>
                 </p>
               </div>
             </article>
@@ -277,15 +277,15 @@ function Calculator() {
                   </td>
                   <td style={{ backgroundColor: "lightBlue" }} className="p-2">
                     {" "}
-                    {bookieResults.bookieResults}
+                    {bookieResults.bookieResults.toFixed(2)}
                   </td>
                   <td style={{ backgroundColor: "lightBlue" }} className="p-2">
                     {" "}
-                    {bookieResults.exchangeResults}
+                    {bookieResults.exchangeResults.toFixed(2)}
                   </td>
                   <td style={{ backgroundColor: "pink" }} className="p-2">
                     {" "}
-                    £ {bookieResults.totalProfit}
+                    £ {bookieResults.totalProfit.toFixed(2)}
                   </td>
                 </tr>
                 <tr className="table__row">
@@ -294,15 +294,15 @@ function Calculator() {
                   </td>
                   <td style={{ backgroundColor: "#e24343" }} className="p-2">
                     {" "}
-                    {exchangeResults.bookieResults}
+                    {exchangeResults.bookieResults.toFixed(2)}
                   </td>
                   <td style={{ backgroundColor: "#e24343" }} className="p-2">
                     {" "}
-                    {exchangeResults.exchangeResults}
+                    {exchangeResults.exchangeResults.toFixed(2)}
                   </td>
                   <td style={{ backgroundColor: "pink" }} className="p-2">
                     {" "}
-                    £ {exchangeResults.totalProfit}
+                    £ {exchangeResults.totalProfit.toFixed(2)}
                   </td>
                 </tr>
               </tbody>
@@ -311,7 +311,7 @@ function Calculator() {
 
           {/* Explained more */}
           <section className='bg-yellow-400 px-2'>
-            <p className='text-sm text-center'>
+            <p className='text-sm text-center mt-8'>
               Remember the qualifying bet will lose a small amount due to the
               exchange commision. However you will make this back on the free
               bet. Just remember to calculate the correct overall winnings.
