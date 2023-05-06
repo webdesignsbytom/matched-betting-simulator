@@ -1,7 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import client from '../../utils/axios/client';
+import { SimulatorContext } from '../../context/SimulatorContext';
 
 function ApiContainer() {
+  const { makeBookieBet } = useContext(SimulatorContext);
   const [allFoundOdds, setAllFoundOdds] = useState([]);
 
   useEffect(() => {
@@ -12,35 +14,23 @@ function ApiContainer() {
         `https://api.the-odds-api.com/v4/sports/upcoming/odds/?&regions=uk&markets=h2h&apiKey=deacd793ace1d4868aa674bed9b79adb`
       )
       .then((res) => {
-        console.log('res', res.data);
         res.data.map((sport, index) => {
-          console.log('sport', sport, index);
           if (sport.bookmakers.length > 0) {
-            console.log('777777');
             if (sport.bookmakers[0].markets[0].outcomes.length < 3) {
-              console.log('11111', sport);
               sport.bookmakers[0].markets[0].outcomes.push({
                 name: 'Draw',
                 price: 2.5,
               });
             }
-
             tempArray.push(sport);
           }
         });
-        console.log('temp', tempArray);
         setAllFoundOdds(tempArray);
       })
       .catch((err) => {
         console.error('Unable to retrieve odds', err);
       });
   }, []);
-
-  const makeBookieBet = (betTyoe, match, price) => {
-    console.log('betTyoe', betTyoe);
-    console.log('match', match);
-    console.log('price', price);
-  };
 
   console.log('all found', allFoundOdds);
   return (
@@ -55,7 +45,6 @@ function ApiContainer() {
           <section className='grid gap-1 overflow-y-scroll max-h-[300px] w-full'>
             {allFoundOdds.length &&
               allFoundOdds.map((match, index) => {
-                console.log('item found', match);
                 return (
                   <article
                     key={index}
@@ -72,6 +61,7 @@ function ApiContainer() {
                           onClick={() =>
                             makeBookieBet(
                               'win',
+                              match.home_team,
                               match,
                               match.bookmakers[0].markets[0].outcomes.find(
                                 (outcome) => outcome.name === match.home_team
@@ -91,6 +81,7 @@ function ApiContainer() {
                           onClick={() =>
                             makeBookieBet(
                               'lose',
+                              match.away_team,
                               match,
                               match.bookmakers[0].markets[0].outcomes.find(
                                 (outcome) => outcome.name === match.away_team
@@ -110,6 +101,7 @@ function ApiContainer() {
                           onClick={() =>
                             makeBookieBet(
                               'draw',
+                              [match.away_team, match.home_team],
                               match,
                               match.bookmakers[0].markets[0].outcomes.find(
                                 (outcome) => outcome.name === 'Draw'
@@ -136,6 +128,7 @@ function ApiContainer() {
                           onClick={() =>
                             makeBookieBet(
                               'win',
+                              match.away_team,
                               match,
                               match.bookmakers[0].markets[0].outcomes.find(
                                 (outcome) => outcome.name === match.away_team
@@ -155,6 +148,7 @@ function ApiContainer() {
                           onClick={() =>
                             makeBookieBet(
                               'lose',
+                              match.home_team,
                               match,
                               match.bookmakers[0].markets[0].outcomes.find(
                                 (outcome) => outcome.name === match.home_team
@@ -174,6 +168,7 @@ function ApiContainer() {
                           onClick={() =>
                             makeBookieBet(
                               'draw',
+                              [match.away_team, match.home_team],
                               match,
                               match.bookmakers[0].markets[0].outcomes.find(
                                 (outcome) => outcome.name === 'Draw'

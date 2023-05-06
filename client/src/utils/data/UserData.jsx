@@ -7,7 +7,7 @@ export const userSampleData = {
     username: "tom",
   },
   simulatorAccount: {
-    bank: 1000,
+    bank: 5000,
     openBets: [],
   },
 };

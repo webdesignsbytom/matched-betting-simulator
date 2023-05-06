@@ -7,7 +7,7 @@ import UserBetArea from '../../components/simulator/UserBetArea';
 
 function SimulatorPage() {
   return (
-    <div className='min-h-screen lg:max-h-screen lg:overflow-hidden grid grid-rows-reg bg-yellow-400'>
+    <div className='min-h-screen grid grid-rows-reg bg-yellow-400'>
       <Navbar />
       <main className='grid h-full grid-rows-reg'>
         {/* TITLES */}
